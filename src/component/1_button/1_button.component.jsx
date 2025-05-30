@@ -12,6 +12,7 @@
  * @param {string} props.padding - 버튼 안쪽 여백 (기본값: "10px 20px")
  * @param {string} props.borderRadius - 버튼 모서리 둥글기 (기본값: "8px")
  * @param {string} props.fontSize - 텍스트 크기 (기본값: "20px")
+ * @param {string} props.border - border 설정 (기본값 : "none")
  *
  * @returns JSX.Element
  */
@@ -26,6 +27,7 @@ const ButtonComponent1 = ({
   padding = "0 0",
   borderRadius = "8px",
   fontSize = "20px",
+  border = "none",
 }) => {
   const style = {
     background:
@@ -38,7 +40,7 @@ const ButtonComponent1 = ({
     padding: padding,
     borderRadius: borderRadius,
     fontSize,
-    border: "none",
+    border,
     cursor: "pointer",
   }
 
