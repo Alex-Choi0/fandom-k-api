@@ -10,6 +10,7 @@
  * @param {string} props.borderRadius - 이미지 모서리 둥글기 (기본값: "8px")
  * @param {string} props.backgroundColor - 이미지 배경색 (기본값: "none")
  * @param {string} props.objectFit - 이미지 비율 조정 방식 (기본값: "cover")
+ * @param {string} props.objectPosition - 이미지 내에서 어떤 부분을 노출할지 설정 (예: "center top", "center bottom")
  * @param {string} props.border - 이미지의 경계면(border)값을 조정 (기본값 : "1px solid #F96D69")
  * @param {string} props.padding - 이미지의 padding값을 설정한다. (기본값 : "0 0")
  * @param {string} props.maskImge - 이미지의 불투명도를 설정한다. 해제할시 "none"입력 (기본값 : "linear-gradient(to bottom, black 85%, transparent 100%)")
@@ -25,6 +26,7 @@ const ImageComponent2 = ({
   borderRadius = "8px", // 테두리 둥글기
   backgroundColor = "none", // 배경색
   objectFit = "cover", // 이미지 비율 조정 (cover, contain 등)
+  objectPosition = "center top",
   border = "1px solid #F96D69",
   padding = "0 0",
   maskImage = "linear-gradient(to bottom, black 85%, transparent 100%)",
@@ -37,6 +39,7 @@ const ImageComponent2 = ({
     height,
     borderRadius,
     objectFit, // 예: cover, contain, fill 등
+    objectPosition,
     backgroundColor,
     boxSizing: "border-box", // padding 이슈 방지용
     border,
