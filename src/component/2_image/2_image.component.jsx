@@ -37,6 +37,7 @@ const ImageComponent2 = ({
     boxSizing: "border-box", // padding 이슈 방지용
     border,
     padding,
+    maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
   }
 
   return <img className={classNameSet} src={src} alt={alt} style={style} />
