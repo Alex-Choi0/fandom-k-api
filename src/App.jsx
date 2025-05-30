@@ -1,4 +1,5 @@
 import "./App.css"
+// import testImage from "./assets/image/test_image2.png"
 
 const App = () => {
   return (

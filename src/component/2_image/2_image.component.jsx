@@ -22,6 +22,8 @@ const ImageComponent2 = ({
   borderRadius = "8px", // 테두리 둥글기
   backgroundColor = "none", // 배경색
   objectFit = "cover", // 이미지 비율 조정 (cover, contain 등)
+  border = "1px solid #F96D69",
+  padding = "0 0",
 }) => {
   if (!src) return null // src가 없으면 렌더링하지 않음
 
@@ -33,6 +35,8 @@ const ImageComponent2 = ({
     objectFit, // 예: cover, contain, fill 등
     backgroundColor,
     boxSizing: "border-box", // padding 이슈 방지용
+    border,
+    padding,
   }
 
   return <img className={classNameSet} src={src} alt={alt} style={style} />
