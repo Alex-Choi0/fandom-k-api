@@ -1,4 +1,4 @@
-const ImageComponent = ({
+const ImageComponent2 = ({
   classNameSet = "",
   src,
   alt = "image",
@@ -25,4 +25,4 @@ const ImageComponent = ({
   )
 }
 
-export default ImageComponent
+export default ImageComponent2
