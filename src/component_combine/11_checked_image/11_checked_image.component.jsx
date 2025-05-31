@@ -39,6 +39,7 @@ const CheckedImage11 = ({
   padding = "2px",
   maskImage = "none",
   srcChecked = checkedImage,
+  overflow = "hidden",
   scrCheckedPosition = {
     position: "absolute",
     right: "30%",
@@ -56,7 +57,7 @@ const CheckedImage11 = ({
         width,
         height,
         borderRadius,
-        overflow: "hidden",
+        overflow,
         display,
       }}
     >
