@@ -1,6 +1,30 @@
 import checkedImage from "../../assets/icon/checked.png"
 import ImageComponent2 from "../../component/2_image/2_image.component"
 
+/**
+ * CheckedImage11 컴포넌트
+ *
+ * 이미지 위에 색상 오버레이와 체크 아이콘을 표시할 수 있는 합성 이미지 컴포넌트
+ *
+ * @param {string} src - 이미지 경로 (필수)
+ * @param {string} display - 외부에서 사용할 display 속성 (기본값: inline-block)
+ * @param {string} alt - 이미지 대체 텍스트
+ * @param {string} width - 이미지/박스의 너비 (기본값: 60px)
+ * @param {string} height - 이미지/박스의 높이 (기본값: 60px)
+ * @param {string} borderRadius - 테두리 둥글기 (기본값: 50% → 원형)
+ * @param {string} backgroundColor - 이미지 배경색
+ * @param {string} objectFit - 이미지 채우기 방식 (cover, contain 등)
+ * @param {string} objectPosition - 이미지에서 보일 위치 조정
+ * @param {string} border - 이미지 테두리 (기본값: 2px solid #F96D69)
+ * @param {string} padding - 이미지 padding
+ * @param {string} maskImage - 마스크 효과 (예: 그라데이션), "none"이면 제거
+ * @param {string} srcChecked - 체크 이미지 경로
+ * @param {Object} scrCheckedPosition - 체크 아이콘의 위치 및 크기 설정
+ * @param {string} color - 오버레이 색상 (status가 true일 때만 적용)
+ * @param {boolean} status - 체크 이미지 및 오버레이 표시 여부
+ *
+ * @returns JSX.Element
+ */
 const CheckedImage11 = ({
   src, // 이미지 경로 (필수)
   display = "inline-block",
