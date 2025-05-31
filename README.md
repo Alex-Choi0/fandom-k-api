@@ -4,6 +4,8 @@
 
 ## 🔗 프로젝트 링크
 
+- 🧭 [팀 노션](https://www.notion.so/4-2016a839fa8c802a9e96e23de6b85c1b)
+- 📑 [상세 노션](https://www.notion.so/201d0dd80790803e862ac3f6e74db47c)
 - 🔗 [기본 노션](https://codeit.notion.site/_-1d56fd228e8d81e19a74db3c719a067c)
 - 🎨 [Figma 디자인](https://www.figma.com/design/lccVqOCzq7XCUYztyC7KlQ/-AAA-Fandom-K?node-id=8-1008&p=f&t=d6FTDYjBMakzDP5f-0)
 - 📚 [Swagger API 문서](https://fandom-k-api.vercel.app/docs/)
