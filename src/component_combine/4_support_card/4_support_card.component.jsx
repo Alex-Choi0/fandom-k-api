@@ -1,7 +1,7 @@
 import ButtonComponent1 from "../../component/1_button/1_button.component"
 import ImageComponent2 from "../../component/2_image/2_image.component"
 
-const SupportCardComponent3 = ({
+const SupportCardComponent4 = ({
   classNameSet = "",
   setImage = {
     classNameSet: "", // 외부에서 Tailwind 또는 custom class 적용 시 사용
@@ -49,4 +49,4 @@ const SupportCardComponent3 = ({
   )
 }
 
-export default SupportCardComponent3
+export default SupportCardComponent4
