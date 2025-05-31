@@ -6,8 +6,8 @@
  * @param {string} props.width - 요소의 너비 (기본값: "100%")
  * @param {string} props.height - 요소의 높이 (기본값: "100%")
  * @param {string} props.text - 표시할 텍스트 (기본값: "강남역 광고")
- * @param {string} props.bgColor - 배경 색상 (기본값: "#828282")
- * @param {string} props.textColor - 텍스트 색상 (기본값: "#fff")
+ * @param {string} props.bgColor - 배경 색상 (기본값[투명]: "transparent")
+ * @param {string} props.textColor - 텍스트 색상 (기본값: "#000")
  * @param {string} props.padding - 내부 여백 (기본값: "0 0")
  * @param {string} props.borderRadius - 모서리 둥글기 (기본값: "0")
  * @param {string} props.fontSize - 글자 크기 (기본값: "20px")
@@ -29,8 +29,8 @@ const TextComponent8 = ({
   width = "100%",
   height = "100%",
   text = "강남역 광고",
-  bgColor = "#828282",
-  textColor = "#fff",
+  bgColor = "transparent",
+  textColor = "#000",
   padding = "0 0",
   borderRadius = "0",
   fontSize = "20px",
