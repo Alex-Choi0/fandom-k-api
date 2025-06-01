@@ -229,6 +229,3 @@ function createQuery(arr = []) {
 
   return str
 }
-
-
-ContributeIdolsDonations23('뉴진스', 862, 777);
