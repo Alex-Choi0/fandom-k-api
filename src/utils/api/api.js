@@ -50,6 +50,46 @@ export const FindIdols19 = async (teamName = '뉴진스', cursor = null, pageSiz
 }
 
 /**
+ * 특정 팀의 후원 아이돌 목록을 조회하는 함수
+ *
+ * @param {string} teamName - 팀 이름 (기본값: "뉴진스")
+ *                            → URL 경로에 들어가며, 한글 등은 encodeURIComponent로 인코딩됨
+ * @param {number|null} cursor - 페이징 처리를 위한 커서 값 (기본값: null)
+ *                               → 다음 페이지 요청 시 전달되는 값
+ * @param {number} pageSize - 페이지당 요청할 아이돌 수 (기본값: 10)
+ * @param {number[]} priorityIdolIds - 우선순위 아이돌 ID 리스트 (기본값: 빈 배열)
+ *                                     → 최대 5개까지 전달 가능, 선택적 query 파라미터
+ *
+ * @returns {Promise<Object>} - 응답받은 JSON 데이터 (성공 시 아이돌 후원 리스트 등 포함)
+ */
+export const FindIdolsDonation21 = async (teamName = '뉴진스', cursor = null, pageSize = 10, priorityIdolIds = [] /* priorityIdolIds에는 최대 5개의 아이돌 ID가 들어간다. */) => {
+  const arr = [{ cursor }, { pageSize }, { priorityIdolIds }]
+  let str = createQuery(arr);
+
+  console.log("FindIdolsDonation21 str : ", str);
+
+  // 요청 URL 작성
+  const requestUrl = `${mainUrl}/${encodeURIComponent(teamName)}/donations?${str}`
+
+  // 서버에 요청
+  const res = await fetch(requestUrl)
+    .then((res) => {
+      console.log("then : ", res)
+      return res.json()
+    })
+    .then((data) => {
+      console.log("data : ", data)
+      return data
+    })
+    .catch(err => console.error(err))
+    .finally(() => console.log("FindIdolsDonation21 완료"))
+
+  console.log(res)
+
+  return res
+}
+
+/**
  * 특정 팀의 아이돌 차트 데이터를 조회하는 함수
  *
  * @param {string} teamName - 팀 이름 (기본값: "뉴진스") → URL 경로로 들어가므로 encodeURIComponent 처리됨
@@ -119,3 +159,4 @@ function createQuery(arr = []) {
   return str
 }
 
+FindIdolsDonation21()
