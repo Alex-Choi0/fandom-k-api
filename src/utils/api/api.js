@@ -85,7 +85,19 @@ function createQuery(arr = []) {
 
     // null이 아닌 값은 쿼리로 입력
     if (arr[i][key]) {
-      str += `${key}=${arr[i][key]}`
+      if (Array.isArray(arr[i][key])) {
+        const subArray = arr[i][key];
+        for (let i = 0; i < subArray.length; i++) {
+          str += `${key}=${arr[i][key]}`
+          if (j + 1 < subArray.length) {
+            str += '&'
+          }
+        }
+
+      } else {
+        str += `${key}=${arr[i][key]}`
+
+      }
     }
 
     if (i + 1 < arr.length) {
