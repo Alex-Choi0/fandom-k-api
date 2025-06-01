@@ -30,6 +30,7 @@ const ImageComponent2 = ({
   border = "1px solid #F96D69",
   padding = "0 0",
   maskImage = "linear-gradient(to bottom, black 85%, transparent 100%)",
+  styles = {},
 }) => {
   if (!src) return null // src가 없으면 렌더링하지 않음
 
@@ -45,6 +46,7 @@ const ImageComponent2 = ({
     border,
     padding,
     maskImage,
+    ...styles,
   }
 
   return <img className={classNameSet} src={src} alt={alt} style={style} />

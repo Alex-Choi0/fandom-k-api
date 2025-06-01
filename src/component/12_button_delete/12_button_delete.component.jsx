@@ -1,23 +1,33 @@
 import deleteButtonImg from "../../assets/icon/btn_delete.png"
 
 const ButtonDeleteComponent12 = ({
-  position = "static",
+  position = "relative",
   width = "22px",
   height = "22px",
-  bottom = "5px",
-  left = "5px",
+  top = "25px",
+  right = "-25px",
   zIndex = 11,
+  styles = {},
 }) => {
   return (
     <>
       <img
         src={deleteButtonImg}
-        position={position}
-        width={width}
-        height={height}
-        bottom={bottom}
-        left={left}
-        zIndex={zIndex}
+        // position={position}
+        // width={width}
+        // height={height}
+        // top={top}
+        // right={right}
+        style={{
+          position,
+          width,
+          height,
+          top,
+          right,
+          zIndex,
+          ...styles,
+        }}
+        alt="삭제 버튼"
       />
     </>
   )
