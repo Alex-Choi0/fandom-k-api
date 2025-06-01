@@ -49,6 +49,16 @@ export const FindIdols19 = async (teamName = '뉴진스', cursor = null, pageSiz
 
 }
 
+/**
+ * 특정 팀의 아이돌 차트 데이터를 조회하는 함수
+ *
+ * @param {string} teamName - 팀 이름 (기본값: "뉴진스") → URL 경로로 들어가므로 encodeURIComponent 처리됨
+ * @param {number|null} cursor - 페이징 처리를 위한 커서 값 (null이면 첫 페이지)
+ * @param {number} pageSize - 페이지당 아이템 수 (기본값: 10)
+ * @param {string} gender - 성별 필터링 값 (기본값: "female")
+ *
+ * @returns {Promise<Object>} - 응답받은 JSON 데이터 객체
+ */
 export const FindIdolsCharts20 = async (teamName = '뉴진스', cursor = null, pageSize = 10, gender = 'female') => {
   const arr = [{ cursor }, { pageSize }, { gender }]
   let str = createQuery(arr);
