@@ -1,15 +1,21 @@
+import { useEffect, useState } from "react";
 import "./App.css";
-import HeaderNav from "./component/10_HeaderNav/HeaderNav";
-import CreditBox from "./component_combine/18_CreditBox/CreditBox";
-import BoostIdols from "./component_combine/30_BoostIdols/BoostIdols";
-// import testImage from "./assets/image/test_image2.png"
+
 
 const App = () => {
+  const [favoriteIdols, setFavoriteIdols] = useState([]);
+
+  // 처음 마운트 시 localStorage에서 불러오기
+  useEffect(() => {
+    const stored = localStorage.getItem("favoriteIdols");
+    if (stored) {
+      setFavoriteIdols(JSON.parse(stored));
+    }
+  }, []);
+
   return (
     <>
-      <HeaderNav />
-      <CreditBox />
-      <BoostIdols />
+<h1> 메인페이지</h1>
     </>
   );
 };

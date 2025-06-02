@@ -1,0 +1,70 @@
+.SelectableIdolList-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.SelectableIdolList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 128px);
+  row-gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 48px;
+  justify-content: space-between;
+}
+
+.SelectableIdolList-card {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  gap: 8px;
+}
+
+.idollist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.idollist-name {
+  line-height: 1.73em;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #f4efef;
+}
+
+.idollist-group {
+  margin: 0;
+  font-size: 14px;
+  line-height: 100%;
+  color: fff;
+}
+
+.SelectableIdolList::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel-btn img {
+  width: 29px;
+}
+
+.carousel-btn.left {
+  left: -61px;
+}
+
+.carousel-btn.right {
+  right: -61px;
+}

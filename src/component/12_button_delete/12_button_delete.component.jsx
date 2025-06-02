@@ -1,13 +1,13 @@
-import deleteButtonImg from "../../assets/icon/btn_delete.png"
+import deleteButtonImg from "../../assets/icon/btn_delete.svg";
 
 const ButtonDeleteComponent12 = ({
   position = "relative",
-  width = "22px",
-  height = "22px",
+  width = "32%",
   top = "25px",
   right = "-25px",
   zIndex = 11,
   styles = {},
+  onClick,
 }) => {
   return (
     <>
@@ -21,16 +21,16 @@ const ButtonDeleteComponent12 = ({
         style={{
           position,
           width,
-          height,
           top,
           right,
           zIndex,
           ...styles,
         }}
         alt="삭제 버튼"
+        onClick={onClick}
       />
     </>
-  )
-}
+  );
+};
 
-export default ButtonDeleteComponent12
+export default ButtonDeleteComponent12;

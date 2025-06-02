@@ -31,8 +31,9 @@ const ImageComponent2 = ({
   padding = "0 0",
   maskImage = "linear-gradient(to bottom, black 85%, transparent 100%)",
   styles = {},
+  onClick,
 }) => {
-  if (!src) return null // src가 없으면 렌더링하지 않음
+  if (!src) return null; // src가 없으면 렌더링하지 않음
 
   // 스타일 객체 구성
   const style = {
@@ -47,9 +48,17 @@ const ImageComponent2 = ({
     padding,
     maskImage,
     ...styles,
-  }
+  };
 
-  return <img className={classNameSet} src={src} alt={alt} style={style} />
-}
+  return (
+    <img
+      className={classNameSet}
+      src={src}
+      alt={alt}
+      style={style}
+      onClick={onClick}
+    />
+  );
+};
 
-export default ImageComponent2
+export default ImageComponent2;
