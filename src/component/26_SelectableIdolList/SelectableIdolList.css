@@ -1,0 +1,34 @@
+.SelectableIdolList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  row-gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 48px;
+}
+
+.SelectableIdolList-card {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  gap: 8px;
+}
+
+.SelectableIdolList-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.SelectableIdolList-group {
+  line-height: 1.73em;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.SelectableIdolList-name {
+  margin: 0;
+  font-size: 14px;
+  line-height: 100%;
+}
