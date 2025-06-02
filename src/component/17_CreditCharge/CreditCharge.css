@@ -4,3 +4,7 @@
   color: #f96d69;
   background: none;
 }
+
+.CreditCharge-button:focus {
+  outline: none;
+}
