@@ -27,6 +27,7 @@ const ButtonComponent1 = ({
   padding = "0 0",
   borderRadius = "8px",
   fontSize = "20px",
+  fontWeight = "700",
   border = "none",
   onClick,
 }) => {
@@ -41,6 +42,7 @@ const ButtonComponent1 = ({
     padding: padding,
     borderRadius: borderRadius,
     fontSize,
+    fontWeight,
     border,
     cursor: "pointer",
   };
