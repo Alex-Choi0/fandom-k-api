@@ -1,5 +1,5 @@
-import ButtonDeleteComponent12 from "../../component/12_button_delete/12_button_delete.component"
-import ImageComponent2 from "../../component/2_image/2_image.component"
+import ButtonDeleteComponent12 from "../../component/12_button_delete/12_button_delete.component";
+import ImageComponent2 from "../../component/2_image/2_image.component";
 
 /**
  * DeleteFavoriteComponent16
@@ -36,6 +36,7 @@ const DeleteFavoriteComponent16 = ({
   padding = "2px",
   maskImage = "none",
   position = "relative",
+  onRemove,
 }) => {
   return (
     <div
@@ -66,15 +67,16 @@ const DeleteFavoriteComponent16 = ({
         maskImage={maskImage}
       />
       <ButtonDeleteComponent12
+        onClick={onRemove}
         styles={{
-          position: "relative",
-          top: "-70px",
-          right: "-20px",
+          position: "absolute",
+          top: "0",
+          right: "0",
           zIndex: 11,
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default DeleteFavoriteComponent16
+export default DeleteFavoriteComponent16;

@@ -27,7 +27,9 @@ const ButtonComponent1 = ({
   padding = "0 0",
   borderRadius = "8px",
   fontSize = "20px",
+  fontWeight = "700",
   border = "none",
+  onClick,
 }) => {
   const style = {
     background:
@@ -40,17 +42,18 @@ const ButtonComponent1 = ({
     padding: padding,
     borderRadius: borderRadius,
     fontSize,
+    fontWeight,
     border,
     cursor: "pointer",
-  }
+  };
 
   return (
     <>
-      <button className={classNameSet} style={style}>
+      <button className={classNameSet} style={style} onClick={onClick}>
         {btnName}
       </button>
     </>
-  )
-}
+  );
+};
 
-export default ButtonComponent1
+export default ButtonComponent1;
