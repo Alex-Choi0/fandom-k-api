@@ -1,0 +1,16 @@
+.AddFavoriteIdol-section {
+  width: 100%;
+}
+
+.AddFavoriteIdol-name {
+  text-align: left;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f6f6f8;
+}
+
+.icon-plus {
+  width: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
