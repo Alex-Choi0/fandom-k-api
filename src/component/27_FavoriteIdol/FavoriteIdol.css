@@ -1,0 +1,15 @@
+.FavoriteIdol-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(11, 98px);
+  margin-top: 32px;
+  margin-bottom: 42px;
+  justify-content: space-between;
+}
+
+.FavoriteIdol-card {
+  display: flex;
+  width: 98px;
+  flex-direction: column;
+  gap: 8px;
+}
