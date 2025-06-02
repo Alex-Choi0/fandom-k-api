@@ -1,0 +1,13 @@
+/*전체*/
+.BoostIdols {
+  padding: 20px;
+  color: white;
+}
+
+/*방향키 포함 영역*/
+.BoostSlider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
