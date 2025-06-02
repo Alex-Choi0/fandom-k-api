@@ -36,6 +36,7 @@ const DeleteFavoriteComponent16 = ({
   padding = "2px",
   maskImage = "none",
   position = "relative",
+  onRemove,
 }) => {
   return (
     <div
@@ -66,6 +67,7 @@ const DeleteFavoriteComponent16 = ({
         maskImage={maskImage}
       />
       <ButtonDeleteComponent12
+        onClick={onRemove}
         styles={{
           position: "absolute",
           top: "0",

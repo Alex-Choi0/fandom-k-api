@@ -7,6 +7,7 @@ const ButtonDeleteComponent12 = ({
   right = "-25px",
   zIndex = 11,
   styles = {},
+  onClick,
 }) => {
   return (
     <>
@@ -26,6 +27,7 @@ const ButtonDeleteComponent12 = ({
           ...styles,
         }}
         alt="삭제 버튼"
+        onClick={onClick}
       />
     </>
   );
