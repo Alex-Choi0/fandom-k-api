@@ -1,5 +1,5 @@
-import checkedImage from "../../assets/icon/checked.png"
-import ImageComponent2 from "../../component/2_image/2_image.component"
+import checkedImage from "../../assets/icon/checked.png";
+import ImageComponent2 from "../../component/2_image/2_image.component";
 
 /**
  * CheckedImage11 컴포넌트
@@ -44,11 +44,12 @@ const CheckedImage11 = ({
     position: "absolute",
     right: "30%",
     bottom: "30%",
-    width: "20px",
-    height: "20px",
+    width: "27%",
+    height: "auto",
   },
   color = "#F96E68",
   status = true,
+  onClick,
 }) => {
   return (
     <div
@@ -73,6 +74,7 @@ const CheckedImage11 = ({
         border={border}
         padding={padding}
         maskImage={maskImage}
+        onClick={onClick} // 예지 : 관심 아이돌 클릭 시 추가를 위한 수정
       />
       {/* 위에 얹을 불투명 색 레이어 */}
       <div
@@ -95,16 +97,17 @@ const CheckedImage11 = ({
           alt="checked"
           style={{
             position: "absolute",
-            right: "30%",
-            bottom: "30%",
-            width: "20px",
-            height: "20px",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "27%",
+            height: "auto",
             ...scrCheckedPosition,
           }}
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CheckedImage11
+export default CheckedImage11;
