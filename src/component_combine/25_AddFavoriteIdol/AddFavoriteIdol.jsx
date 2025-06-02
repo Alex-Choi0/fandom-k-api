@@ -2,10 +2,25 @@ import "./AddFavoriteIdol.css";
 import Button from "../../component/1_button/1_button.component";
 import iconPlus from "../../assets/icon/plus.svg";
 import SelectableIdolList from "../../component/26_SelectableIdolList/SelectableIdolList.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FindIdols19 } from "../../utils/api/api";
 
-function AddFavoriteIdol() {
-  const [selectedIds, setSelectedIds] = useState([]); // ✅ 요거 추가
+function AddFavoriteIdol({ favoriteIdols, setFavoriteIdols }) {
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [idolList, setIdolList] = useState([]);
+
+  useEffect(() => {
+    const fetchIdols = async () => {
+      try {
+        const res = await FindIdols19("뉴진스", null, 100, null);
+        setIdolList(res.list);
+      } catch (err) {
+        console.error("아이돌 목록 불러오기 실패", err);
+      }
+    };
+
+    fetchIdols();
+  }, []);
 
   const handleToggle = (idolId) => {
     setSelectedIds((prev) =>
@@ -15,14 +30,34 @@ function AddFavoriteIdol() {
     );
   };
 
+  const handleAddFavorite = () => {
+    const selectedIdols = idolList.filter((idol) =>
+      selectedIds.includes(idol.id)
+    );
+
+    const newIdols = selectedIdols.filter(
+      (idol) => !favoriteIdols.some((item) => item.id === idol.id)
+    );
+
+    if (newIdols.length === 0) return alert("이미 추가된 아이돌입니다!");
+
+    const updated = [...favoriteIdols, ...newIdols];
+    setFavoriteIdols(updated);
+    localStorage.setItem("favoriteIdols", JSON.stringify(updated));
+    alert("아이돌이 추가되었습니다!");
+    setSelectedIds([]);
+  };
+
   return (
     <div className="AddFavoriteIdol-section">
-      <h2 className="AddFavoriteIdol-name">관심 있는 아이돌을 추가해보세요.</h2>
+      <h2 className="mypage-title">관심 있는 아이돌을 추가해보세요.</h2>
 
-      {/* ✅ 아이돌 목록 렌더링 */}
-      <SelectableIdolList selectedIds={selectedIds} onToggle={handleToggle} />
+      <SelectableIdolList
+        idolList={idolList}
+        selectedIds={selectedIds}
+        onToggle={handleToggle}
+      />
 
-      {/* ✅ 버튼은 아래 유지 */}
       <Button
         className="AddFavoriteIdol-button"
         btnName={
@@ -36,6 +71,7 @@ function AddFavoriteIdol() {
         borderRadius="24px"
         fontSize="16px"
         fontWeight="700"
+        onClick={handleAddFavorite}
       />
     </div>
   );
