@@ -1,9 +1,7 @@
+import LandingPageComponent39 from "../../component_combine/39_landing_page/39_landing_page.component"
+
 const LandingPageRoute38 = () => {
-  return (
-    <>
-      <h1>랜딩페이지 부분</h1>
-    </>
-  )
+  return <LandingPageComponent39 />
 }
 
 export default LandingPageRoute38
