@@ -1,13 +1,15 @@
 import "./App.css";
 import HeaderNav from "./component/10_HeaderNav/HeaderNav";
+import CreditBox from "./component_combine/18_CreditBox/CreditBox";
+import BoostIdols from "./component_combine/30_BoostIdols/BoostIdols";
 // import testImage from "./assets/image/test_image2.png"
 
 const App = () => {
   return (
     <>
       <HeaderNav />
-      <h1>메인 라우터</h1>
-      <p>라우터 작성전까지 테스트</p>
+      <CreditBox />
+      <BoostIdols />
     </>
   );
 };

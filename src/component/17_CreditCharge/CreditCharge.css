@@ -1,0 +1,10 @@
+.CreditCharge-button {
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  color: #f96d69;
+  background: none;
+}
+
+.CreditCharge-button:focus {
+  outline: none;
+}
