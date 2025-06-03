@@ -1,7 +1,12 @@
 /*전체*/
 .BoostIdols {
-  padding: 20px;
-  color: white;
+  margin-top: 40px;
+}
+
+.BoostIdols h2 {
+  font-size: 23px;
+  color: rgba(247, 247, 258, 1);
+  margin-left: 30px;
 }
 
 /*방향키 포함 영역*/
