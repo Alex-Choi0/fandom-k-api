@@ -53,7 +53,7 @@ const LandingPageComponent39 = () => {
           />
         </div>
         <div className="firstLandingPage-btn">
-          <Link to="/">
+          <Link to="/list">
             <ButtonComponent1
               btnName="지금 시작하기"
               width="100%"
