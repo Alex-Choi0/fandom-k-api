@@ -25,7 +25,7 @@ function FavoriteIdol({ favoriteIdols, setFavoriteIdols }) {
               height="98px"
               onRemove={() => handleRemove(idol.id)}
             />
-            <div className="FavoriteIdol-info">
+            <div className="idollist-info">
               <p className="idollist-name">{idol.name}</p>
               <p className="idollist-group">{idol.group}</p>
             </div>

@@ -1,57 +1,65 @@
 import "./SelectableIdolList.css";
-import { FindIdols19 } from "../../utils/api/api";
-import ImageComponent2 from "../../component/2_image/2_image.component"; // 체크 안 된 이미지 컴포넌트
-import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component"; // 체크된 이미지 컴포넌트
-import { useEffect, useState, useRef } from "react";
-import btnLeft from "../../assets/icon/btn_page-left.png";
-import btnRight from "../../assets/icon/btn_page-right.png";
+import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component";
+import SwipeCarousel from "../../component/41_SwipeCarousel/SwipeCarousel.jsx";
 
-const SelectableIdolList = ({ idolList, selectedIds, onToggle }) => {
-  const scrollRef = useRef(null);
-
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({
-      left: -300,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({
-      left: 300,
-      behavior: "smooth",
-    });
-  };
+const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
+  // 16개씩 쪼개기 (페이지 단위)
+  const chunkedIdolList = [];
+  for (let i = 0; i < idolList.length; i += 16) {
+    chunkedIdolList.push(idolList.slice(i, i + 16));
+  }
 
   return (
     <div className="SelectableIdolList-wrapper">
-      {/* 좌측 화살표 (PC/태블릿에서만 보임) */}
-      <button className="carousel-btn left" onClick={scrollLeft}>
-        <img src={btnLeft} alt="왼쪽" />
-      </button>
-
-      <div className="SelectableIdolList" ref={scrollRef}>
-        {idolList.map((idol) => (
-          <div key={idol.id} className="SelectableIdolList-card">
-            <CheckedImage11
-              src={idol.profilePicture}
-              alt={idol.name}
-              width="128px"
-              height="128px"
-              status={selectedIds.includes(idol.id)}
-              onClick={() => onToggle(idol.id)}
-            />
-            <div className="idollist-info">
-              <div className="idollist-name">{idol.name}</div>
-              <div className="idollist-group">{idol.group}</div>
-            </div>
+      <SwipeCarousel
+        scrollStep={cardWidth}
+        leftButtonProps={{
+          width: 29,
+          height: 135,
+          backgroundColor: "rgba(27, 27, 27, 0.8)",
+          style: {
+            left: "-61px",
+            top: "50%",
+          },
+        }}
+        rightButtonProps={{
+          width: 29,
+          height: 135,
+          backgroundColor: "rgba(27, 27, 27, 0.8)",
+          style: {
+            right: "-61px",
+            top: "50%",
+          },
+        }}
+      >
+        {(scrollRef) => (
+          <div className="scroll-container" ref={scrollRef}>
+            {chunkedIdolList.map((page, index) => (
+              <div className="SelectableIdolList" key={index}>
+                {page.map((idol) => (
+                  <div
+                    key={`${idol.id}-${index}`}
+                    className="SelectableIdolList-card"
+                  >
+                    <CheckedImage11
+                      src={idol.profilePicture}
+                      alt={idol.name}
+                      width="128px"
+                      height="128px"
+                      status={selectedIds.includes(idol.id)}
+                      onClick={() => onToggle(idol.id)}
+                    />
+                    <div className="idollist-info">
+                      <div className="idollist-name">{idol.name}</div>
+                      <div className="idollist-group">{idol.group}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {/* 우측 화살표 */}
-      <button className="carousel-btn right" onClick={scrollRight}>
-        <img src={btnRight} alt="오른쪽" />
-      </button>
+        )}
+      </SwipeCarousel>
     </div>
   );
 };

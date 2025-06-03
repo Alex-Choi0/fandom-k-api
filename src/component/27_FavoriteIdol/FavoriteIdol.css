@@ -13,3 +13,8 @@
   flex-direction: column;
   gap: 8px;
 }
+
+.delete-favorite:first-child {
+  min-width: 98px;
+  min-height: 98px;
+}
