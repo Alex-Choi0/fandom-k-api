@@ -1,0 +1,26 @@
+/* CreditBox 바깥 테두리와 내부 정렬 */
+.CreditBox {
+  max-width: 1100px;
+  border: 1px solid rgba(241, 238, 249, 0.8);
+  border-radius: 9px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 좌측 MyCredit 영역 */
+.CreditBox-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 우측 CreditCharge 영역 */
+.CreditBox-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

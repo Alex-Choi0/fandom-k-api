@@ -1,0 +1,47 @@
+/*뱡향키 제외 영역*/
+.BoostArea {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 60px;
+  scroll-behavior: smooth;
+}
+
+/*후원 정보*/
+.BoostCard {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 300px;
+  max-width: 250px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.BoostCard p {
+  padding: 3px;
+  text-align: left;
+}
+
+/* 위치 텍스트 */
+.location-text {
+  color: #828282;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+/* 제목 텍스트*/
+.title-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -25px;
+}
+
+/* 금액, 마감일 텍스트 */
+.donation-text,
+.deadline-text {
+  color: #fff;
+  font-size: 20px;
+  margin: 4px 0;
+}
