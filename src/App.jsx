@@ -1,19 +1,13 @@
-import "./App.css";
-import HeaderNav from "./component/10_HeaderNav/HeaderNav";
-import CreditBox from "./component_combine/18_CreditBox/CreditBox";
-import BoostIdols from "./component_combine/30_BoostIdols/BoostIdols";
-import ChartPage from "./component_combine/31_ChartPage/ChartPage";
-// import testImage from "./assets/image/test_image2.png"
+import { Route, Routes } from "react-router-dom"
+import "./App.css"
+import LandingPageRoute38 from "./routes/38_landing_page/38_landing_page.route"
 
 const App = () => {
   return (
-    <>
-      <HeaderNav />
-      <CreditBox />
-      <BoostIdols />
-      <ChartPage />
-    </>
-  );
-};
+    <Routes>
+      <Route index={true} path="/" element={<LandingPageRoute38 />} />
+    </Routes>
+  )
+}
 
-export default App;
+export default App
