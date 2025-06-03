@@ -1,0 +1,23 @@
+.firstLandingPage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  height: 1080px;
+  background-color: black;
+  background-image: url("../../assets/image/landingPage/firstImage.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 932.4px 781.2px;
+  padding: 95.4px 0;
+}
+
+.next-word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-page-btn {
+  top: 770px;
+}
