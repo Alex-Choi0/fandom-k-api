@@ -1,5 +1,5 @@
-import checkedImage from "../../assets/icon/checked.png";
-import ImageComponent2 from "../../component/2_image/2_image.component";
+import checkedImage from "../../assets/icon/checked.png"
+import ImageComponent2 from "../../component/2_image/2_image.component"
 
 /**
  * CheckedImage11 컴포넌트
@@ -50,6 +50,7 @@ const CheckedImage11 = ({
   color = "#F96E68",
   status = true,
   onClick,
+  onDelete,
 }) => {
   return (
     <div
@@ -104,10 +105,11 @@ const CheckedImage11 = ({
             height: "auto",
             ...scrCheckedPosition,
           }}
+          onClick={onDelete} // X클릭시 실행
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CheckedImage11;
+export default CheckedImage11

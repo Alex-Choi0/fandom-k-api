@@ -29,6 +29,7 @@ const ButtonComponent1 = ({
   fontSize = "20px",
   fontWeight = "700",
   border = "none",
+  position = "static",
   onClick,
 }) => {
   const style = {
@@ -45,7 +46,8 @@ const ButtonComponent1 = ({
     fontWeight,
     border,
     cursor: "pointer",
-  };
+    position,
+  }
 
   return (
     <>
@@ -53,7 +55,7 @@ const ButtonComponent1 = ({
         {btnName}
       </button>
     </>
-  );
-};
+  )
+}
 
-export default ButtonComponent1;
+export default ButtonComponent1

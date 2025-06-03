@@ -28,7 +28,7 @@ const BoostIdolsList = ({ items }) => {
             }}
           />
           {/* 이미지 아래 정보 */}
-          <p className="location-text">강남역 광고</p> {/*임시*/}
+          <p className="location-text">{item.subtitle}</p>
           <p className="title-text">{item.title}</p>
           <div>
             <p className="donation-text">
