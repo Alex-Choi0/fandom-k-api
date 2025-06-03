@@ -35,10 +35,12 @@
   gap: 8px;
 }
 
+/*
 .SelectableIdolList-card img {
   min-width: 128px;
   min-height: 128px;
 }
+  */
 
 .idollist-info {
   display: flex;
@@ -88,4 +90,17 @@
 
 .carousel-btn.right {
   right: -61px;
+}
+
+/* 태블릿 버전 (744px 이하) */
+
+@media (max-width: 744px) {
+  .scroll-container {
+    width: 584px;
+  }
+}
+
+/* 모바일 버전 (375px 이하) */
+
+@media (max-width: 375px) {
 }

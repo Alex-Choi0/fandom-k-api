@@ -16,3 +16,21 @@
   margin-right: 8px;
   vertical-align: middle;
 }
+
+/* 태블릿 버전 (744px 이하) */
+
+@media (max-width: 744px) {
+  .AddFavoriteIdol-section {
+    margin-top: 32px;
+  }
+
+  .mypage-title {
+    font-size: 20px;
+    margin-top: 14px;
+  }
+}
+
+/* 모바일 버전 (375px 이하) */
+
+@media (max-width: 375px) {
+}

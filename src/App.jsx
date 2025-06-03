@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-
+import HeaderNav from "./component/10_HeaderNav/HeaderNav.jsx";
+import FavoriteIdol from "./component/27_favoriteIdol/FavoriteIdol";
+import AddFavoriteIdol from "./component_combine/25_AddFavoriteIdol/AddFavoriteIdol";
 
 const App = () => {
   const [favoriteIdols, setFavoriteIdols] = useState([]);
@@ -15,7 +17,7 @@ const App = () => {
 
   return (
     <>
-<h1> 메인페이지</h1>
+      <h1> 메인페이지</h1>
     </>
   );
 };
