@@ -9,7 +9,7 @@ const mainUrl = 'https://fandom-k-api.vercel.app'
  * @param {*} keyword 검색 키워드(옵션) - null가능(string)
  * @returns
  */
-export const FindIdols19 = async (teamName = '뉴진스', cursor = null, pageSize, keyword = null) => {
+export const FindIdols19 = async (teamName = '16-4', cursor = null, pageSize, keyword = null) => {
 
   const arr = [{ cursor }, { pageSize }, { keyword }]
   let str = createQuery(arr)
@@ -62,7 +62,7 @@ export const FindIdols19 = async (teamName = '뉴진스', cursor = null, pageSiz
  *
  * @returns {Promise<Object>} - 응답받은 JSON 데이터 (성공 시 아이돌 후원 리스트 등 포함)
  */
-export const FindIdolsDonation21 = async (teamName = '뉴진스', cursor = null, pageSize = 10, priorityIdolIds = [] /* priorityIdolIds에는 최대 5개의 아이돌 ID가 들어간다. */) => {
+export const FindIdolsDonation21 = async (teamName = '16-4', cursor = null, pageSize = 10, priorityIdolIds = [] /* priorityIdolIds에는 최대 5개의 아이돌 ID가 들어간다. */) => {
   const arr = [{ cursor }, { pageSize }, { priorityIdolIds }]
   let str = createQuery(arr);
 
@@ -117,7 +117,7 @@ export const FindIdolsDonation21 = async (teamName = '뉴진스', cursor = null,
  *
  * @throws {Error} - contributeId 또는 amount가 유효하지 않을 경우 예외 발생
  */
-export const ContributeIdolsDonations23 = async (teamName = '뉴진스', contributeId, amount) => {
+export const ContributeIdolsDonations23 = async (teamName = '16-4', contributeId, amount) => {
 
   console.log("teamName : ", teamName)
   console.log("contributeId : ", contributeId)
@@ -170,7 +170,7 @@ export const ContributeIdolsDonations23 = async (teamName = '뉴진스', contrib
  *
  * @returns {Promise<Object>} - 응답받은 JSON 데이터 객체
  */
-export const FindIdolsCharts20 = async (teamName = '뉴진스', cursor = null, pageSize = 10, gender = 'female') => {
+export const FindIdolsCharts20 = async (teamName = '16-4', cursor = null, pageSize = 10, gender = 'female') => {
   const arr = [{ cursor }, { pageSize }, { gender }]
   let str = createQuery(arr);
 
