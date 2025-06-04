@@ -2,20 +2,26 @@
 .BoostArea {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  padding: 20px 60px;
+  overflow-x: hidden;
+  padding: 0 0;
   scroll-behavior: smooth;
+  justify-content: center;
 }
 
 /*후원 정보*/
 .BoostCard {
-  background-color: #1e1e1e;
-  border-radius: 12px;
+  border-radius: 30px;
   padding: 10px;
-  min-width: 300px;
-  max-width: 250px;
+  width: 280px;
+  box-sizing: border-box;
   flex-shrink: 0;
   text-align: center;
+}
+
+.BoostCard img {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .BoostCard p {
