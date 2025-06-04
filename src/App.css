@@ -11,3 +11,12 @@
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+/* 태블릿 버전 (744px 이하) */
+
+@media (max-width: 744px) {
+  #root {
+    max-width: 696px;
+    padding: 1.5rem;
+  }
+}

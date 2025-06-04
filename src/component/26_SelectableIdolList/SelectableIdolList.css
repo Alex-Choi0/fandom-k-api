@@ -1,7 +1,10 @@
 .scroll-container {
-  width: 1200px;
+  width: 100%;
+  height: calc(183px * 2 + 32px);
+  margin: 32px 0 48px;
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -13,19 +16,18 @@
 }
 
 .SelectableIdolList {
-  width: 1200px;
+  width: 100%;
   height: calc(183px * 2 + 32px);
   display: grid;
   grid-template-rows: repeat(2, auto);
-  grid-template-columns: repeat(8, 128px);
-  row-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 32px 25px;
   overflow-x: auto;
-  margin-top: 32px;
-  margin-bottom: 48px;
   justify-content: space-between;
   flex-shrink: 0;
   overflow: visible;
   scroll-snap-align: start;
+  flex: 0 0 auto;
 }
 
 .SelectableIdolList-card {
@@ -61,13 +63,14 @@
   margin: 0;
   font-size: 14px;
   line-height: 100%;
-  color: fff;
+  color: #fff;
 }
 
 .SelectableIdolList::-webkit-scrollbar {
   display: none;
 }
 
+/* 중복 CSS 제거
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -91,16 +94,41 @@
 .carousel-btn.right {
   right: -61px;
 }
+*/
 
 /* 태블릿 버전 (744px 이하) */
 
 @media (max-width: 744px) {
+  .SelectableIdolList-wrapper {
+    margin: 0 auto;
+  }
+
   .scroll-container {
-    width: 584px;
+    margin: 40px 0;
+  }
+
+  .SelectableIdolList {
+    height: calc(183px * 2 + 24px);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 24px;
   }
 }
 
 /* 모바일 버전 (375px 이하) */
 
 @media (max-width: 375px) {
+  .scroll-container {
+    height: calc(151px * 2 + 24px);
+    margin: 16px 0 24px;
+  }
+
+  .SelectableIdolList {
+    height: calc(151px * 2 + 24px);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 24px 17px;
+  }
+
+  .SelectableIdolList-card {
+    width: 98px;
+  }
 }
