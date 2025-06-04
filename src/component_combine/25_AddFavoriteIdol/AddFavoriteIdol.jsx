@@ -12,7 +12,7 @@ function AddFavoriteIdol({ favoriteIdols, setFavoriteIdols }) {
   useEffect(() => {
     const fetchIdols = async () => {
       try {
-        const res = await FindIdols19("16-4", null, 100, null);
+        const res = await FindIdols19("16-4", null, 50, null);
         setIdolList(res.list);
       } catch (err) {
         console.error("아이돌 목록 불러오기 실패", err);

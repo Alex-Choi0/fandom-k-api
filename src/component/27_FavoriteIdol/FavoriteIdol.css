@@ -3,7 +3,8 @@
 .FavoriteIdol-list {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(11, 98px);
+  grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
+  gap: 24px 12px;
   margin-top: 32px;
   margin-bottom: 42px;
   justify-content: space-between;
@@ -14,13 +15,14 @@
   width: 98px;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
 }
 
 /* 태블릿 버전 (744px 이하) */
 
 @media (max-width: 744px) {
   .FavoriteIdol-list {
-    grid-template-columns: repeat(6, 98px);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     margin-top: 24px;
     margin-bottom: 32px;
   }
@@ -31,6 +33,7 @@
 @media (max-width: 375px) {
   .FavoriteIdol-list {
     display: flex;
+    justify-content: flex-start;
     gap: 32px;
     margin-top: 12px;
     padding: 0 14px;
