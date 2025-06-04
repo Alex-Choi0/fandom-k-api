@@ -1,35 +1,72 @@
 import "./SelectableIdolList.css";
 import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component";
 import SwipeCarousel from "../../component/41_SwipeCarousel/SwipeCarousel.jsx";
+import { useState, useEffect } from "react";
 
 const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
-  // 16개씩 쪼개기 (페이지 단위)
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [chunkSize, setChunkSize] = useState(16);
+  const [imageSize, setImageSize] = useState("128px");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      setViewportWidth(width);
+
+      if (width <= 375) {
+        setChunkSize(6);
+        setImageSize("98px");
+      } else if (width <= 744) {
+        setChunkSize(8);
+        setImageSize("128px");
+      } else {
+        setChunkSize(16);
+        setImageSize("128px");
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const chunkedIdolList = [];
-  for (let i = 0; i < idolList.length; i += 16) {
-    chunkedIdolList.push(idolList.slice(i, i + 16));
+  for (let i = 0; i < idolList.length; i += chunkSize) {
+    chunkedIdolList.push(idolList.slice(i, i + chunkSize));
   }
+
+  useEffect(() => {
+    const handleResize = () => setViewportWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const leftBtnStyle =
+    viewportWidth <= 745
+      ? { left: "-56px", top: "50%" } // 태블릿용
+      : { left: "-61px", top: "50%" }; // 데스크탑용
+
+  const rightBtnStyle =
+    viewportWidth <= 745
+      ? { right: "-56px", top: "50%" }
+      : { right: "-61px", top: "50%" };
 
   return (
     <div className="SelectableIdolList-wrapper">
       <SwipeCarousel
+        buttonVisibleAt={744}
         scrollStep={cardWidth}
         leftButtonProps={{
           width: 29,
           height: 135,
           backgroundColor: "rgba(27, 27, 27, 0.8)",
-          style: {
-            left: "-61px",
-            top: "50%",
-          },
+          style: leftBtnStyle,
         }}
         rightButtonProps={{
           width: 29,
           height: 135,
           backgroundColor: "rgba(27, 27, 27, 0.8)",
-          style: {
-            right: "-61px",
-            top: "50%",
-          },
+          style: rightBtnStyle,
         }}
       >
         {(scrollRef) => (
@@ -44,13 +81,15 @@ const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
                     <CheckedImage11
                       src={idol.profilePicture}
                       alt={idol.name}
-                      width="128px"
-                      height="128px"
+                      width={imageSize}
+                      height={imageSize}
                       status={selectedIds.includes(idol.id)}
                       onClick={() => onToggle(idol.id)}
                     />
                     <div className="idollist-info">
-                      <div className="idollist-name">{idol.name}</div>
+                      <div className="idollist-name">
+                        {idol.name.split(" ").pop()}
+                      </div>
                       <div className="idollist-group">{idol.group}</div>
                     </div>
                   </div>
