@@ -7,6 +7,8 @@ const ArrowButton = ({
   width = 29,
   height = 135,
   backgroundColor = "rgba(27, 27, 27, 0.8)",
+  iconWidth = 6, // 화살표 아이콘 크기
+  iconHeight = 12, // 화살표 아이콘 크기
   className = "",
   style = {},
 }) => {
@@ -33,7 +35,7 @@ const ArrowButton = ({
       <img
         src={icon}
         alt={`${direction} arrow`}
-        style={{ width: 6, height: 12 }}
+        style={{ width: iconWidth, height: iconHeight }}
       />
     </button>
   );
