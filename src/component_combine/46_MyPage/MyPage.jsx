@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../App.css";
+import "./MyPage.css";
 import HeaderNav from "../../component/10_HeaderNav/HeaderNav.jsx";
 import FavoriteIdol from "../../component/27_favoriteIdol/FavoriteIdol.jsx";
 import AddFavoriteIdol from "../25_AddFavoriteIdol/AddFavoriteIdol.jsx";
@@ -18,15 +19,17 @@ const MyPage = () => {
   return (
     <>
       <HeaderNav />
-      <FavoriteIdol
-        favoriteIdols={favoriteIdols}
-        setFavoriteIdols={setFavoriteIdols}
-      />
-      <hr className="section-divider" />
-      <AddFavoriteIdol
-        favoriteIdols={favoriteIdols}
-        setFavoriteIdols={setFavoriteIdols}
-      />
+      <div className="mypage-root">
+        <FavoriteIdol
+          favoriteIdols={favoriteIdols}
+          setFavoriteIdols={setFavoriteIdols}
+        />
+        <hr className="section-divider" />
+        <AddFavoriteIdol
+          favoriteIdols={favoriteIdols}
+          setFavoriteIdols={setFavoriteIdols}
+        />
+      </div>
     </>
   );
 };
