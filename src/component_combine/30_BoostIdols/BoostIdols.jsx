@@ -2,7 +2,7 @@ import "./BoostIdols.css";
 import { useEffect, useState } from "react";
 import { FindIdolsDonation21 } from "../../utils/api/api"; //API 함수
 import BoostIdolsList from "../../component/28_BoostIdolsList/BoostIdolsList"; // 이미지+텍스트 카드 리스트
-import SliderNavigation from "../../component/29_SliderNavigation/SliderNavigation"; // 좌/우 버튼
+import SwipeCarousel from "../../component/41_SwipeCarousel/SwipeCarousel"; // 좌/우 버튼
 
 function BoostIdols() {
   const [idolList, setIdolList] = useState([]); // 후원 조공 리스트
@@ -13,8 +13,8 @@ function BoostIdols() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await FindIdolsDonation21("뉴진스", null, 8, []);
-        setIdolList(res?.list || []); //배열 or { list: [...] } / 결과 리스트 저장장
+        const res = await FindIdolsDonation21("16-4", null, 30, []);
+        setIdolList(res?.list || []); //배열 or { list: [...] } / 결과 리스트 저장
       } catch (err) {
         setError(err.message || String(err));
       } finally {
@@ -32,12 +32,35 @@ function BoostIdols() {
       <h2>후원을 기다리는 조공</h2>
       {!idolList.length && <p>등록된 조공이 없습니다.</p>}
       <div className="BoostSlider">
-        {/* 왼쪽 버튼 */}
-        <SliderNavigation direction="left" />
-        {/* 아이돌 카드 리스트 */}
-        <BoostIdolsList items={idolList} />
-        {/* 왼쪽 버튼 */}
-        <SliderNavigation direction="right" />
+        <SwipeCarousel
+          scrollStep={1200}
+          leftButtonProps={{
+            style: {
+              width: "50px",
+              height: "100px",
+              left: "-60px",
+              backgroundColor: "#151518",
+              borderRadius: "12px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            },
+          }}
+          rightButtonProps={{
+            style: {
+              width: "50px",
+              height: "100px",
+              right: "-60px",
+              backgroundColor: "#151518",
+              borderRadius: "12px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            },
+          }}
+        >
+          <BoostIdolsList items={idolList} />
+        </SwipeCarousel>
       </div>
     </div>
   );
