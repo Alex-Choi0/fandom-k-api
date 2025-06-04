@@ -11,8 +11,23 @@
 
 /*방향키 포함 영역*/
 .BoostSlider {
-  position: relative;
-  display: flex;
+  width: 100%;
+  max-width: 1200px;
   align-items: center;
   justify-content: center;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}
+
+/*방향키*/
+.carousel-btn.left img,
+.carousel-btn.right img {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.carousel-btn.left:focus,
+.carousel-btn.right:focus {
+  outline: none;
 }

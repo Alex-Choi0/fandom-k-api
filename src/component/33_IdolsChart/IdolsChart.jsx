@@ -22,7 +22,7 @@ function IdolsChart() {
   }, [gender]);
 
   const fetchChartList = async () => {
-    const res = await FindIdolsCharts20("뉴진스", cursor, 10, gender);
+    const res = await FindIdolsCharts20("16-4", cursor, 10, gender);
     setChartList(res.idols);
     setCursor(res.nextCursor);
     setLoading(false);
@@ -32,7 +32,7 @@ function IdolsChart() {
   const handleLoadMore = async () => {
     if (!cursor || loading) return;
     setLoading(true);
-    const res = await FindIdolsCharts20("뉴진스", cursor, 10, gender);
+    const res = await FindIdolsCharts20("16-4", cursor, 10, gender);
     setChartList((prev) => [...prev, ...res.idols]);
     setCursor(res.nextCursor);
     setLoading(false);
