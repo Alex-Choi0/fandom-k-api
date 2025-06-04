@@ -1,9 +1,14 @@
+body {
+  background-color: #02000e;
+}
+
 #root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   /*text-align: center; 삭제*/
   font-family: "Pretendard", sans-serif;
+  background-color: #02000e;
 }
 
 .section-divider {
