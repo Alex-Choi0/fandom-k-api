@@ -1,4 +1,4 @@
-import "./MyCredit.css";
+import "./my_credit.css";
 
 function MyCredit() {
   return (

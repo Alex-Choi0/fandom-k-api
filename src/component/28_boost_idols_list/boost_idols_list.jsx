@@ -1,7 +1,7 @@
 import SupportCardComponent4 from "../../component_combine/4_support_card/4_support_card.component";
-import StatusBarComponent9 from "../../component/9_status_bar/9_status_bar.component";
+import StatusBarComponent9 from "../9_status_bar/9_status_bar.component";
 import CreditIcon from "../../assets/icon/Credit.svg";
-import "./BoostIdolsList.css";
+import "./boost_idols_list.css";
 
 const BoostIdolsList = ({ items }) => {
   return (

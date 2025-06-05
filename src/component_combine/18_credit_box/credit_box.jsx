@@ -1,6 +1,6 @@
-import "./CreditBox.css";
-import MyCredit from "../../component/13_MyCredit/MyCredit";
-import CreditCharge from "../../component/17_CreditCharge/CreditCharge";
+import "./credit_box.css";
+import MyCredit from "../../component/13_my_credit/my_credit";
+import CreditCharge from "../../component/17_credit_charge/credit_charge";
 
 function CreditBox() {
   return (
