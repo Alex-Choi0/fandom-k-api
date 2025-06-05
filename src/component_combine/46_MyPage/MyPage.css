@@ -1,0 +1,6 @@
+/* PC버전 중간 사이즈 - 1293px 이하 */
+@media (max-width: 1293px) and (min-width: 376px) {
+  .mypage-root {
+    padding: 2rem 3rem;
+  }
+}

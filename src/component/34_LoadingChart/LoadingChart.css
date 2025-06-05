@@ -1,0 +1,18 @@
+.loadMore-container {
+  display: flex;
+  justify-content: center;
+}
+
+.loadMore-btn {
+  padding: 13px 160px; /*더보기 버튼 크기*/
+  font-size: 17px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 4px;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+.loadMore-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

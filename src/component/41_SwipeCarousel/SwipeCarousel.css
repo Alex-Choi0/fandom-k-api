@@ -1,0 +1,34 @@
+.swipe-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.swipe-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.swipe-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.swipe-carousel > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.carousel-btn.left {
+  left: -29px;
+}
+.carousel-btn.right {
+  right: -29px;
+}

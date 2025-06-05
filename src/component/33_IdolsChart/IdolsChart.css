@@ -1,0 +1,97 @@
+/*차트 리스트 상단*/
+.ChartBtn-container {
+  width: 1200px;
+}
+
+.ChartBtn {
+  display: flex;
+  width: 100%;
+}
+
+.ChartBtn button {
+  flex: 1;
+  padding: 16px 0;
+  font-size: 16px;
+  background: none;
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  outline: none;
+}
+
+.ChartBtn button.active {
+  color: #fff;
+  border-bottom: 2px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+/*차트 리스트*/
+
+.chart-container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.chart-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+  gap: 32px;
+}
+
+.chart-left,
+.chart-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 48%;
+}
+
+.idol-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 16px;
+}
+
+.idol-item:last-child {
+  border-bottom: none;
+}
+
+.idol-info {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 17px;
+}
+
+.rank {
+  color: rgba(249, 109, 105, 1);
+  font-weight: bold;
+  width: 32px;
+  font-size: 18px;
+}
+
+.idol-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f96d69;
+}
+
+.idol-name {
+  width: 96px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.idol-votes {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: auto;
+  font-size: 18px;
+}
