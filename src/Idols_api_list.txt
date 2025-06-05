@@ -1,0 +1,330 @@
+Fandom-k 아이돌 목록
+
+<그룹명>
+이름 아이디 후원여부
+
+<아이브>
+장원영 5265 후원
+안유진 5316 후원
+레이 5382
+가을 5383
+리즈 5384
+이서 5385
+
+<에스파>
+카리나 5386 후원
+윈터 5387 후원
+지젤 5388
+닝닝 5389
+
+<르세라핌>
+김채원 5390
+사쿠라 5391
+허윤진 5392 후원
+카즈하 5393
+홍은채 5394 후원 
+
+<있지>
+예지 5395
+리아 5396
+류진 5397 후원
+채령 5398
+유나 5399 후원
+
+-------------
+<방탄소년단>
+RM 5400
+진 5401 후원
+슈가 5402
+제이홉 5403 후원
+지민 5404
+뷔 5406 후원
+정국 5407 후원
+
+<더보이즈>
+상연 5408
+제이콥 5409
+영훈 5410 후원
+현재 5411
+주연 5412 후원
+케빈 5413
+
+<데이식스>
+성진 5414
+원필 5415 후원
+도운 5416
+
+
+후원 목록
+
+{
+  "list": [
+    {
+      "id": 903,
+      "idolId": 5392,
+      "title": "르세라핌 허윤진 광고",
+      "subtitle": "서초역 광고",
+      "targetDonation": 200000,
+      "receivedDonations": 110000,
+      "createdAt": "2025-06-03T16:13:41.787Z",
+      "deadline": "2025-07-16T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5392,
+        "name": "르세라핌 허윤진",
+        "gender": "female",
+        "group": "르세라핌",
+        "profilePicture": "https://i.namu.news/2a/2aef2f06ae2ecc29f70e73f422502aaa34b6dc44c2dc817296551905b8e07ed3.jpg",
+        "totalVotes": 0
+      }
+    },
+    {
+      "id": 902,
+      "idolId": 5403,
+      "title": "BTS 제이홉 신곡",
+      "subtitle": "강남역 광고",
+      "targetDonation": 200000,
+      "receivedDonations": 175000,
+      "createdAt": "2025-06-03T16:12:32.959Z",
+      "deadline": "2025-07-10T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5403,
+        "name": "방탄소년단 제이홉",
+        "gender": "male",
+        "group": "방탄소년단",
+        "profilePicture": "https://daily.hankooki.com/news/photo/202203/804150_1077301_2349.jpg",
+        "totalVotes": 56
+      }
+    },
+    {
+      "id": 901,
+      "idolId": 5397,
+      "title": "있지 류진 신곡",
+      "subtitle": "역삼역 광고",
+      "targetDonation": 100000,
+      "receivedDonations": 30000,
+      "createdAt": "2025-06-03T16:09:20.352Z",
+      "deadline": "2025-07-20T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5397,
+        "name": "있지 류진",
+        "gender": "female",
+        "group": "있지",
+        "profilePicture": "https://i.namu.wiki/i/n8aULQamqdzQELDtZ2f3juMNlxfE_lSV8ySMGgIxvEktOvsAaDxUDNxCxlAIGGZ3bkXKNsoL5GV8fyqR-5sjBQ.webp",
+        "totalVotes": 0
+      }
+    },
+    {
+      "id": 900,
+      "idolId": 5412,
+      "title": "더보이즈 주연 지하철 광고",
+      "subtitle": "강남역 광고",
+      "targetDonation": 150000,
+      "receivedDonations": 10000,
+      "createdAt": "2025-06-03T16:08:17.027Z",
+      "deadline": "2025-06-13T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5412,
+        "name": "더보이즈 주연",
+        "gender": "male",
+        "group": "더보이즈",
+        "profilePicture": "https://i.namu.wiki/i/OKTgddWD1-sapikezeudwGoMkjTukW_e989mT2sbNSYb7scPEh8IRXoFmc7xSDOIaq7CZhHCKeM0btxWL1c-zQ.webp",
+        "totalVotes": 65
+      }
+    },
+    {
+      "id": 899,
+      "idolId": 5316,
+      "title": "아이브 안유진 광고",
+      "subtitle": "신림역 광고",
+      "targetDonation": 100000,
+      "receivedDonations": 87000,
+      "createdAt": "2025-06-03T16:02:56.227Z",
+      "deadline": "2025-07-13T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5316,
+        "name": "아이브 안유진",
+        "gender": "female",
+        "group": "아이브",
+        "profilePicture": "https://thumb.mt.co.kr/06/2023/10/2023102207293656368_1.jpg",
+        "totalVotes": 65
+      }
+    },
+    {
+      "id": 898,
+      "idolId": 5401,
+      "title": "BTS 진 신곡",
+      "subtitle": "강남역 광고",
+      "targetDonation": 100000,
+      "receivedDonations": 76000,
+      "createdAt": "2025-06-03T15:59:00.185Z",
+      "deadline": "2025-06-23T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5401,
+        "name": "방탄소년단 진",
+        "gender": "male",
+        "group": "방탄소년단",
+        "profilePicture": "https://img.sbs.co.kr/newsnet/etv/upload/2021/02/17/30000670593_1280.jpg",
+        "totalVotes": 44
+      }
+    },
+    {
+      "id": 897,
+      "idolId": 5386,
+      "title": "에스파 카리나 지하철 광고",
+      "subtitle": "논현역 광고",
+      "targetDonation": 200000,
+      "receivedDonations": 187000,
+      "createdAt": "2025-06-03T15:57:21.042Z",
+      "deadline": "2025-07-01T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5386,
+        "name": "에스파 카리나",
+        "gender": "female",
+        "group": "에스파",
+        "profilePicture": "https://img3.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202306/13/BoiledMovie/20230613105008231adzf.png",
+        "totalVotes": 85
+      }
+    },
+    {
+      "id": 896,
+      "idolId": 5415,
+      "title": "데이식스 원필 신곡",
+      "subtitle": "역삼역 광고",
+      "targetDonation": 150000,
+      "receivedDonations": 3000,
+      "createdAt": "2025-06-03T15:56:04.694Z",
+      "deadline": "2025-07-01T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5415,
+        "name": "데이식스 원필",
+        "gender": "male",
+        "group": "데이식스",
+        "profilePicture": "https://cdn.topclass.chosun.com/news/photo/202406/33353_46812_4013.jpg",
+        "totalVotes": 40
+      }
+    },
+    {
+      "id": 895,
+      "idolId": 5394,
+      "title": "르세라핌 홍은채 졸업",
+      "subtitle": "강남역 광고",
+      "targetDonation": 150000,
+      "receivedDonations": 70000,
+      "createdAt": "2025-06-03T15:54:19.061Z",
+      "deadline": "2025-08-01T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5394,
+        "name": "르세라핌 홍은채",
+        "gender": "female",
+        "group": "르세라핌",
+        "profilePicture": "https://newsimg.sedaily.com/2023/05/13/29PKA9QJEA_2.jpg",
+        "totalVotes": 66
+      }
+    },
+    {
+      "id": 893,
+      "idolId": 5399,
+      "title": "있지 유나 지하철 광고",
+      "subtitle": "논현역 광고",
+      "targetDonation": 150000,
+      "receivedDonations": 65000,
+      "createdAt": "2025-06-03T15:49:32.941Z",
+      "deadline": "2025-07-03T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5399,
+        "name": "있지 유나",
+        "gender": "female",
+        "group": "있지",
+        "profilePicture": "https://pimg.mk.co.kr/news/cms/202309/08/news-p.v1.20230908.acbac320cb7d48b3902ea4941dc9905a.jpg",
+        "totalVotes": 49
+      }
+    },
+    {
+      "id": 892,
+      "idolId": 5410,
+      "title": "더보이즈 영훈 생일",
+      "subtitle": "강남역 광고",
+      "targetDonation": 100000,
+      "receivedDonations": 93000,
+      "createdAt": "2025-06-03T15:45:22.699Z",
+      "deadline": "2025-06-28T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5410,
+        "name": "더보이즈 영훈",
+        "gender": "male",
+        "group": "더보이즈",
+        "profilePicture": "https://i.namu.wiki/i/Nf9FBQezFCQwMTznl7EmwFib8yteHA2K1LZL42Ja9DIS9AAD-t00s1DKL25gMGHk1wGqUIi8HnYpEAYf_OI6eQ.webp",
+        "totalVotes": 75
+      }
+    },
+    {
+      "id": 891,
+      "idolId": 5387,
+      "title": "에스파 윈터 지하철 광고",
+      "subtitle": "논현역 광고",
+      "targetDonation": 150000,
+      "receivedDonations": 130000,
+      "createdAt": "2025-06-03T15:43:49.401Z",
+      "deadline": "2025-07-03T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5387,
+        "name": "에스파 윈터",
+        "gender": "female",
+        "group": "에스파",
+        "profilePicture": "https://m.sportsworldi.com/content/image/2024/07/04/20240704509616.jpg",
+        "totalVotes": 93
+      }
+    },
+    {
+      "id": 890,
+      "idolId": 5406,
+      "title": "BTS 뷔 지하철 광고",
+      "subtitle": "강남역 광고",
+      "targetDonation": 200000,
+      "receivedDonations": 153000,
+      "createdAt": "2025-06-03T15:41:40.772Z",
+      "deadline": "2025-07-29T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5406,
+        "name": "방탄소년단 뷔",
+        "gender": "male",
+        "group": "방탄소년단",
+        "profilePicture": "https://www.news1.kr/_next/image?url=https%3A%2F%2Fi3n.news1.kr%2Fsystem%2Fphotos%2F2021%2F2%2F15%2F4619608%2Fhigh.jpg&w=1920&q=75",
+        "totalVotes": 92
+      }
+    },
+    {
+      "id": 889,
+      "idolId": 5265,
+      "title": "장원영 20번째 생일",
+      "subtitle": "강남역 광고",
+      "targetDonation": 100000,
+      "receivedDonations": 75000,
+      "createdAt": "2025-06-03T13:45:30.143Z",
+      "deadline": "2025-06-29T23:59:59.000Z",
+      "status": true,
+      "idol": {
+        "id": 5265,
+        "name": "아이브 장원영",
+        "gender": "female",
+        "group": "아이브",
+        "profilePicture": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/2023_MMA_IVE_Wonyoung_1.jpg/250px-2023_MMA_IVE_Wonyoung_1.jpg",
+        "totalVotes": 87
+      }
+    }
+  ],
+  "nextCursor": null
+}

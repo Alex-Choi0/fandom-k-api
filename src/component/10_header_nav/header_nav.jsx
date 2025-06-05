@@ -1,4 +1,4 @@
-import "./HeaderNav.css";
+import "./header_nav.css";
 import Logo from "../../assets/image/logo.svg";
 import UserIcon from "../../assets/image/usericon.svg";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ function HeaderNav() {
   const navigate = useNavigate();
 
   const handleLogoClick = () => {
-    window.location.reload(); // 새로고침
+    navigate("/list"); //목록페이지로 이동
   };
 
   const handleUserIconClick = () => {

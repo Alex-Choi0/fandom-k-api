@@ -1,4 +1,4 @@
-import "./LoadingChart.css";
+import "./loading_chart.css";
 
 function LoadingChart({ onClick, isVisible, isLoading }) {
   if (!isVisible) return null; // 커서 없으면 버튼 숨김

@@ -1,6 +1,6 @@
-import "./HeaderChart.css";
+import "./header_chart.css";
 import SupportCardComponent4 from "../../component_combine/4_support_card/4_support_card.component";
-import Chart from "../../assets/icon/Chart.svg";
+import Chart from "../../assets/icon/chart.svg";
 
 function HeaderChart() {
   return (

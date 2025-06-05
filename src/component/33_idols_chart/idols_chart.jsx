@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import "./IdolsChart.css";
+import "./idols_chart.css";
 import { FindIdolsCharts20 } from "../../utils/api/api";
 import ImageComponent2 from "../2_image/2_image.component"; // 동그란 이미지 생성
-import LoadingChart from "../34_LoadingChart/LoadingChart"; //더보기 버튼 연결
+import LoadingChart from "../34_loading_chart/loading_chart"; //더보기 버튼 연결
 
 function IdolsChart() {
   const [gender, setGender] = useState("female"); // 성별 선택
