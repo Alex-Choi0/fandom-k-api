@@ -1,0 +1,134 @@
+.scroll-container {
+  width: 100%;
+  height: calc(183px * 2 + 32px);
+  margin: 32px 0 48px;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.SelectableIdolList-wrapper {
+  position: relative;
+  overflow: visible;
+}
+
+.SelectableIdolList {
+  width: 100%;
+  height: calc(183px * 2 + 32px);
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  gap: 32px 25px;
+  overflow-x: auto;
+  justify-content: space-between;
+  flex-shrink: 0;
+  overflow: visible;
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+.SelectableIdolList-card {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  gap: 8px;
+}
+
+/*
+.SelectableIdolList-card img {
+  min-width: 128px;
+  min-height: 128px;
+}
+  */
+
+.idollist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.idollist-name {
+  line-height: 1.73em;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #f4efef;
+}
+
+.idollist-group {
+  margin: 0;
+  font-size: 14px;
+  line-height: 100%;
+  color: #fff;
+}
+
+.SelectableIdolList::-webkit-scrollbar {
+  display: none;
+}
+
+/* 중복 CSS 제거
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.carousel-btn img {
+  width: 29px;
+}
+
+.carousel-btn.left {
+  left: -61px;
+}
+
+.carousel-btn.right {
+  right: -61px;
+}
+*/
+
+/* 태블릿 버전 (744px 이하) */
+
+@media (max-width: 744px) {
+  .SelectableIdolList-wrapper {
+    margin: 0 auto;
+  }
+
+  .scroll-container {
+    margin: 40px 0;
+  }
+
+  .SelectableIdolList {
+    height: calc(183px * 2 + 24px);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 24px;
+  }
+}
+
+/* 모바일 버전 (375px 이하) */
+
+@media (max-width: 375px) {
+  .scroll-container {
+    height: calc(151px * 2 + 24px);
+    margin: 16px 0 24px;
+  }
+
+  .SelectableIdolList {
+    height: calc(151px * 2 + 24px);
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 24px 17px;
+  }
+
+  .SelectableIdolList-card {
+    width: 98px;
+  }
+}

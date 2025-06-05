@@ -1,0 +1,37 @@
+.AddFavoriteIdol-section {
+  width: 100%;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.mypage-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 24px;
+  color: #f6f6f8;
+}
+
+.icon-plus {
+  width: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* 태블릿 버전 (744px 이하) */
+
+@media (max-width: 744px) {
+  .AddFavoriteIdol-section {
+    margin-top: 32px;
+  }
+
+  .mypage-title {
+    font-size: 20px;
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+}
+
+/* 모바일 버전 (375px 이하) */
+
+@media (max-width: 375px) {
+}

@@ -1,0 +1,28 @@
+/*뱡향키*/
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  padding: 0;
+}
+
+.navButton.left {
+  left: -50px;
+}
+
+.navButton.right {
+  right: -50px;
+}
+
+.navButton img {
+  width: 40px;
+  height: 200px;
+}
+
+.navButton:focus {
+  outline: none;
+}
