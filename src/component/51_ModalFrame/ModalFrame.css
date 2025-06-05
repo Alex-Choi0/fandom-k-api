@@ -1,0 +1,63 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: rgba(24, 29, 38, 1);
+  border-radius: 8px;
+  max-width: 525px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Padding 옵션 */
+.modal-container.default {
+  padding: 24px;
+}
+
+.modal-container.compact {
+  padding: 16px 20px;
+}
+
+/* 타이틀 스타일 옵션 */
+.modal-title {
+  font-size: 18px;
+  color: rgba(247, 247, 248, 1);
+  margin: 0;
+}
+
+.modal-title.default {
+  font-weight: 600;
+}
+
+.modal-title.light {
+  font-weight: 500;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-close img {
+  width: 24px;
+  height: 24px;
+}
+
+.modal-body {
+  color: #fff;
+}
