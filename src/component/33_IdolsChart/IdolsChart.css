@@ -28,7 +28,7 @@
 /*차트 리스트*/
 
 .chart-container {
-  width: 1200px;
+  width: 1160px;
   margin: 0 auto;
   padding: 0 30px;
 }
@@ -84,7 +84,7 @@
 }
 
 .idol-name {
-  width: 96px;
+  width: 140px;
   font-size: 18px;
   font-weight: 300;
 }
