@@ -9,7 +9,7 @@ function BoostIdols() {
   const [loading, setLoading] = useState(true); // 로딩 상태
   const [error, setError] = useState(null); //에러 상태
 
-  //데이터 요청청
+  //데이터 요청
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,6 +35,8 @@ function BoostIdols() {
         <SwipeCarousel
           scrollStep={1200}
           leftButtonProps={{
+            iconWidth: 24,
+            iconHeight: 24,
             style: {
               width: "50px",
               height: "100px",
@@ -47,6 +49,8 @@ function BoostIdols() {
             },
           }}
           rightButtonProps={{
+            iconWidth: 24,
+            iconHeight: 24,
             style: {
               width: "50px",
               height: "100px",
