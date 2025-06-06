@@ -8,7 +8,7 @@ export function useCreditContext() {
 }
 
 export function CreditProvider({ children }) {
-  const [credit, setCredit] = useState(0); // 크레딧 상태
+  const [credit, setCredit] = useState(36000); // 크레딧 상태
 
   /* 크레딧 불러오기 */
   useEffect(() => {
