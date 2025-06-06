@@ -1,0 +1,9 @@
+.credit-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  gap: 1px;
+  font-size: 21px;
+  font-weight: bold;
+}
