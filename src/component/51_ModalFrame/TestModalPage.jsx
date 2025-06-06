@@ -24,12 +24,7 @@ const TestModalPage = () => {
       <button onClick={() => setIsOpen(true)}>모달 열기</button>
 
       {isOpen && (
-        <ModalFrame
-          title="테스트용 모달"
-          titleStyle="default"
-          paddingSize={paddingSize}
-          onClose={() => setIsOpen(false)}
-        >
+        <ModalFrame paddingSize={paddingSize} onClose={() => setIsOpen(false)}>
           <p style={{ marginBottom: "16px" }}>여긴 children 영역이에요</p>
           {/* <button onClick={() => alert("버튼 눌림!")}>버튼 테스트</button> */}
         </ModalFrame>
