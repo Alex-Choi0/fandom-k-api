@@ -1,6 +1,6 @@
-import { useRef, useEffect, useState } from "react";
-import ArrowButton from "../40_ArrowButton/ArrowButton";
-import "./SwipeCarousel.css";
+import { useEffect, useRef, useState } from "react"
+import ArrowButton from "../40_arrowButton/arrowButton"
+import "./swipeCarousel.css"
 
 const SwipeCarousel = ({
   children,
@@ -16,57 +16,57 @@ const SwipeCarousel = ({
   iconWidth = 10, // 화살표 아이콘 svg width
   iconHeight = 20, // 화살표 아이콘 svg height
 }) => {
-  const scrollRef = useRef(null);
-  const [showArrow, setShowArrow] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+  const scrollRef = useRef(null)
+  const [showArrow, setShowArrow] = useState(false)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
-      setShowArrow(window.innerWidth >= buttonVisibleAt);
-    };
+      setShowArrow(window.innerWidth >= buttonVisibleAt)
+    }
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [buttonVisibleAt]);
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [buttonVisibleAt])
 
   // (autoHideButtons) 스크롤 감지로 왼쪽, 오른쪽 화살표 버튼 각각 자동 노출
   useEffect(() => {
-    if (!autoHideButtons || !scrollRef.current) return;
+    if (!autoHideButtons || !scrollRef.current) return
 
     const checkScroll = () => {
-      const el = scrollRef.current;
-      setCanScrollLeft(el.scrollLeft > 0);
-      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth);
-    };
+      const el = scrollRef.current
+      setCanScrollLeft(el.scrollLeft > 0)
+      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth)
+    }
 
-    checkScroll();
-    scrollRef.current.addEventListener("scroll", checkScroll);
-    window.addEventListener("resize", checkScroll);
+    checkScroll()
+    scrollRef.current.addEventListener("scroll", checkScroll)
+    window.addEventListener("resize", checkScroll)
 
     return () => {
-      scrollRef.current?.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, [autoHideButtons]);
+      scrollRef.current?.removeEventListener("scroll", checkScroll)
+      window.removeEventListener("resize", checkScroll)
+    }
+  }, [autoHideButtons])
 
   const scrollLeft = () => {
-    scrollRef.current?.scrollBy({ left: -scrollStep, behavior: "smooth" });
-  };
+    scrollRef.current?.scrollBy({ left: -scrollStep, behavior: "smooth" })
+  }
 
   const scrollRight = () => {
-    scrollRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" });
-  };
+    scrollRef.current?.scrollBy({ left: scrollStep, behavior: "smooth" })
+  }
 
   const shouldShowLeft =
     showButtons &&
     showArrow &&
-    (autoHideButtons ? canScrollLeft : showLeftButton ?? true);
+    (autoHideButtons ? canScrollLeft : showLeftButton ?? true)
   const shouldShowRight =
     showButtons &&
     showArrow &&
-    (autoHideButtons ? canScrollRight : showRightButton ?? true);
+    (autoHideButtons ? canScrollRight : showRightButton ?? true)
 
   return (
     <div className="swipe-carousel-wrapper" style={wrapperStyle}>
@@ -100,7 +100,7 @@ const SwipeCarousel = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SwipeCarousel;
+export default SwipeCarousel

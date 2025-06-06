@@ -1,5 +1,5 @@
-import "./ModalFrame.css";
-import CloseIcon from "../../assets/icon/btn_close.svg";
+import CloseIcon from "../../assets/icon/btn_close.svg"
+import "./modalFrame.css"
 
 const ModalFrame = ({
   title,
@@ -20,7 +20,7 @@ const ModalFrame = ({
         <div className="modal-body">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ModalFrame;
+export default ModalFrame

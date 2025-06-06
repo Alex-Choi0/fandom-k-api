@@ -1,34 +1,34 @@
-import DeleteFavoriteComponent16 from "../../component_combine/16_delete_favorite/16_delete_favorite.component";
-import "./FavoriteIdol.css";
-import "../26_SelectableIdolList/SelectableIdolList.css";
-import "../../component_combine/25_AddFavoriteIdol/AddFavoriteIdol.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react"
+import DeleteFavoriteComponent16 from "../../component_combine/16_delete_favorite/16_delete_favorite.component"
+import "../../component_combine/25_addFavoriteIdol/addFavoriteIdol.css"
+import "../26_selectableIdolList/selectableIdolList.css"
+import "./favoriteIdol.css"
 
 function FavoriteIdol({ favoriteIdols, setFavoriteIdols }) {
   // 아이돌 제거 함수: 상태 및 localStorage 동기화
   const handleRemove = (id) => {
-    const updated = favoriteIdols.filter((idol) => idol.id !== id);
-    setFavoriteIdols(updated); // props 상태 갱신
-    localStorage.setItem("favoriteIdols", JSON.stringify(updated));
-  };
+    const updated = favoriteIdols.filter((idol) => idol.id !== id)
+    setFavoriteIdols(updated) // props 상태 갱신
+    localStorage.setItem("favoriteIdols", JSON.stringify(updated))
+  }
 
   // 반응형 이미지 크기 조정
-  const [imageSize, setImageSize] = useState("98px");
+  const [imageSize, setImageSize] = useState("98px")
 
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth;
+      const width = window.innerWidth
       if (width <= 375) {
-        setImageSize("70px");
+        setImageSize("70px")
       } else {
-        setImageSize("98px");
+        setImageSize("98px")
       }
-    };
+    }
 
-    handleResize(); // 초기 적용
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    handleResize() // 초기 적용
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   return (
     <div className="FavoriteIdol-section">
@@ -52,7 +52,7 @@ function FavoriteIdol({ favoriteIdols, setFavoriteIdols }) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default FavoriteIdol;
+export default FavoriteIdol
