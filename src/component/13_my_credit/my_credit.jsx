@@ -1,10 +1,11 @@
 import "./my_credit.css";
+import CreditDisplay from "../62_credit_display/credit_display";
 
 function MyCredit() {
   return (
     <div className="MyCredit">
       <p className="MyCredit-name">내 크레딧</p>
-      <p>(아이콘 + 내 크레딧 불러올 부분)</p>
+      <CreditDisplay />
     </div>
   );
 }
