@@ -2,8 +2,13 @@ import SupportCardComponent4 from "../../component_combine/4_support_card/4_supp
 import StatusBarComponent9 from "../9_status_bar/9_status_bar.component";
 import CreditIcon from "../../assets/icon/Credit.svg";
 import "./boost_idols_list.css";
+import { useState } from "react";
+import ModalDonate from "../../modal/67_modal_donate/modal_donate"; //모달 컴포넌트
+import ModalPortal from "../../modal/66_modal_portal/modal_portal"; //포탈 컴포넌트
 
 const BoostIdolsList = ({ items }) => {
+  const [selectedItem, setSelectedItem] = useState(null); //클릭한 후원 아이템 정보 저장
+
   return (
     <div className="BoostArea">
       {items.map((item) => {
@@ -42,6 +47,7 @@ const BoostIdolsList = ({ items }) => {
                 textColor: "#fff",
                 fontSize: "16px",
                 borderRadius: "6px",
+                onClick: () => setSelectedItem(item),
               }}
             />
 
@@ -71,6 +77,18 @@ const BoostIdolsList = ({ items }) => {
           </div>
         );
       })}
+
+      {/* 후원하기 모달 */}
+      {selectedItem && (
+        <ModalPortal>
+          <ModalDonate
+            onClose={() => setSelectedItem(null)}
+            idol={selectedItem.idol}
+            subtitle={selectedItem.subtitle}
+            title={selectedItem.title}
+          />
+        </ModalPortal>
+      )}
     </div>
   );
 };
