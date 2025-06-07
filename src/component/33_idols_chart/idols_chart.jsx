@@ -4,11 +4,13 @@ import { FindIdolsCharts20 } from "../../utils/api/api";
 import ImageComponent2 from "../2_image/2_image.component"; // 동그란 이미지 생성
 import LoadingChart from "../34_loading_chart/loading_chart"; //더보기 버튼 연결
 
-function IdolsChart() {
-  const [gender, setGender] = useState("female"); // 성별 선택
+function IdolsChart({ gender, setGender }) {
   const [chartList, setChartList] = useState([]); // 차트
   const [cursor, setCursor] = useState(null); // 다음 페이지
   const [loading, setLoading] = useState(false); // 로딩
+  const [showVoteModal, setShowVoteModal] = useState(false);
+  const handleOpenVoteModal = () => setShowVoteModal(true);
+  const handleCloseVoteModal = () => setShowVoteModal(false); // 투표하기 모달
 
   const handleGenderChange = (newGender) => {
     if (gender === newGender) return; // 다시 클릭해도 반응 X
@@ -63,12 +65,22 @@ function IdolsChart() {
         <div className="chart-list">
           <div className="chart-left">
             {leftList.map((idol, i) => (
-              <IdolItem key={idol.id} data={idol} rank={i * 2 + 1} />
+              <IdolItem
+                key={idol.id}
+                data={idol}
+                rank={i * 2 + 1}
+                onVoteClick={handleOpenVoteModal}
+              />
             ))}
           </div>
           <div className="chart-right">
             {rightList.map((idol, i) => (
-              <IdolItem key={idol.id} data={idol} rank={i * 2 + 2} />
+              <IdolItem
+                key={idol.id}
+                data={idol}
+                rank={i * 2 + 2}
+                onVoteClick={handleOpenVoteModal}
+              />
             ))}
           </div>
         </div>
@@ -82,9 +94,9 @@ function IdolsChart() {
   );
 }
 
-const IdolItem = ({ data, rank }) => {
+const IdolItem = ({ data, rank, onVoteClick }) => {
   return (
-    <div className="idol-item">
+    <div className="idol-item" onClick={onVoteClick}>
       <ImageComponent2
         src={data.profilePicture}
         alt={data.name}
