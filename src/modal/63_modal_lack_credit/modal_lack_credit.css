@@ -20,3 +20,15 @@
   font-size: 16px;
   line-height: 1.5;
 }
+
+@media (max-width: 480px) {
+  .lack-credit-icon {
+    width: 140px;
+    margin-top: -15px;
+    margin-bottom: -20px;
+  }
+
+  .lack-credit-text {
+    font-size: 14px;
+  }
+}

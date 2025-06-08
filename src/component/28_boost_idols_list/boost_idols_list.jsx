@@ -50,30 +50,31 @@ const BoostIdolsList = ({ items }) => {
                 onClick: () => setSelectedItem(item),
               }}
             />
+            <div className="boost-card-uderInfo">
+              {/* 이미지 아래 정보 */}
+              <p className="location-text">{item.subtitle}</p>
+              <p className="title-text">{item.title}</p>
 
-            {/* 이미지 아래 정보 */}
-            <p className="location-text">{item.subtitle}</p>
-            <p className="title-text">{item.title}</p>
+              {/*기부금액 + 남은 일수*/}
+              <div className="donation-meta-row">
+                <p className="donation-text">
+                  <img src={CreditIcon} />
+                  {item.receivedDonations.toLocaleString()}
+                </p>
+                <p className="deadline-text">{remainingDays}일 남음</p>
+              </div>
 
-            {/*기부금액 + 남은 일수*/}
-            <div className="donation-meta-row">
-              <p className="donation-text">
-                <img src={CreditIcon} />
-                {item.receivedDonations.toLocaleString()}
-              </p>
-              <p className="deadline-text">{remainingDays}일 남음</p>
+              {/* 상태바 아래 배치 */}
+              <StatusBarComponent9
+                className="donation-progress-bar"
+                width="266px"
+                height="1px"
+                leftColor="#f96b69"
+                rightColor="#E0E0E0"
+                leftPercentage={donationRatio}
+                borderRadius="4px"
+              />
             </div>
-
-            {/* 상태바 아래 배치 */}
-            <StatusBarComponent9
-              className="donation-progress-bar"
-              width="266px"
-              height="1px"
-              leftColor="#f96b69"
-              rightColor="#E0E0E0"
-              leftPercentage={donationRatio}
-              borderRadius="4px"
-            />
           </div>
         );
       })}

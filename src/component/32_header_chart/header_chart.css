@@ -23,3 +23,38 @@
   width: 50px;
   height: 30px;
 }
+
+@media (max-width: 1023px) {
+  .HeaderChart {
+    width: 650px;
+    padding: 16px 16px;
+    box-sizing: border-box;
+  }
+
+  .ChartVoteBtn {
+    font-size: 14px;
+    height: 34px;
+  }
+
+  .ChartImg {
+    width: 40px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .HeaderChart {
+    width: 320px;
+    padding: 16px 12px;
+  }
+
+  .ChartVoteBtn {
+    font-size: 13px;
+    height: 32px;
+  }
+
+  .ChartImg {
+    width: 36px;
+    height: 20px;
+  }
+}
