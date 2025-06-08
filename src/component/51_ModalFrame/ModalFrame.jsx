@@ -1,5 +1,5 @@
-import CloseIcon from "../../assets/icon/btn_close.svg"
-import "./modalFrame.css"
+import CloseIcon from "../../assets/icon/btn_close.svg";
+import "./modalFrame.css";
 
 const ModalFrame = ({
   title,
@@ -11,7 +11,7 @@ const ModalFrame = ({
   return (
     <div className="modal-overlay">
       <div className={`modal-container ${paddingSize}`}>
-        <div className="modal-header">
+        <div className={`modal-header ${!title ? "no-title" : ""}`}>
           {title && <h2 className={`modal-title ${titleStyle}`}>{title}</h2>}
           <button className="modal-close" onClick={onClose} aria-label="닫기">
             <img src={CloseIcon} alt="닫기" />
@@ -20,7 +20,7 @@ const ModalFrame = ({
         <div className="modal-body">{children}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ModalFrame
+export default ModalFrame;
