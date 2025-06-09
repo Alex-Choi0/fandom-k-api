@@ -63,7 +63,7 @@ function BoostIdols() {
             },
           }}
         >
-          <BoostIdolsList items={idolList} />
+          <BoostIdolsList items={idolList} setItems={setIdolList} />
         </SwipeCarousel>
       </div>
     </div>

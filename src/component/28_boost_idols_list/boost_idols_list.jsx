@@ -6,7 +6,8 @@ import { useState } from "react";
 import ModalDonate from "../../modal/67_modal_donate/modal_donate"; //모달 컴포넌트
 import ModalPortal from "../../modal/66_modal_portal/modal_portal"; //포탈 컴포넌트
 
-const BoostIdolsList = ({ items }) => {
+const BoostIdolsList = ({ items, setItems }) => {
+  // setItems : 내부에서 items 수정 가능
   const [selectedItem, setSelectedItem] = useState(null); //클릭한 후원 아이템 정보 저장
 
   return (
@@ -55,7 +56,7 @@ const BoostIdolsList = ({ items }) => {
               <p className="location-text">{item.subtitle}</p>
               <p className="title-text">{item.title}</p>
 
-              {/*기부금액 + 남은 일수*/}
+              {/*후원금액 + 남은 일수*/}
               <div className="donation-meta-row">
                 <p className="donation-text">
                   <img src={CreditIcon} />
@@ -84,9 +85,20 @@ const BoostIdolsList = ({ items }) => {
         <ModalPortal>
           <ModalDonate
             onClose={() => setSelectedItem(null)}
-            idol={selectedItem.idol}
-            subtitle={selectedItem.subtitle}
-            title={selectedItem.title}
+            item={selectedItem} // selectedItem 전체 전달
+            updateItem={(donatedAmount) => {
+              setItems((prevItems) =>
+                prevItems.map((item) =>
+                  item.id === selectedItem.id
+                    ? {
+                        ...item,
+                        receivedDonations:
+                          item.receivedDonations + donatedAmount,
+                      }
+                    : item
+                )
+              );
+            }}
           />
         </ModalPortal>
       )}

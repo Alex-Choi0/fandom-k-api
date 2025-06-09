@@ -7,7 +7,10 @@ import ButtonComponent1 from "../../component/1_button/1_button.component";
 import ModalFrame from "../../component/51_ModalFrame/ModalFrame";
 import CreditIcon from "../../assets/icon/credit.svg";
 
-function ModalDonate({ onClose, idol, subtitle, title }) {
+function ModalDonate({ onClose, item, updateItem }) {
+  const idol = item.idol;
+  const title = item.title;
+  const subtitle = item.subtitle;
   const [inputValue, setInputValue] = useState(""); //입력값
   const [showLackModal, setShowLackModal] = useState(false); //부족할 경우 띄우는 모달
   const { credit, useCredit } = useCreditContext(); // 현재 크래딧 상태 + 차감 함수(후원 시)
@@ -18,12 +21,12 @@ function ModalDonate({ onClose, idol, subtitle, title }) {
   /* 후원 처리 함수 */
   const handleDonate = () => {
     const amount = parseInt(inputValue, 10);
-
     if (!amount || isNaN(amount)) return;
     if (credit < amount) {
-      setShowLackModal(true); // 부족 모달 띄움
+      setShowLackModal(true);
     } else {
-      useCredit(amount); //크레딧 차감
+      useCredit(amount); // localStorage 크레딧 차감
+      updateItem(amount); // 상위 컴포넌트의 상태 업데이트
       onClose();
     }
   };
@@ -93,7 +96,6 @@ function ModalDonate({ onClose, idol, subtitle, title }) {
       {/* 크레딧 부족 시 모달 */}
       {showLackModal && (
         <ModalPortal>
-          {" "}
           {/* 포탈 | DOM 외부에서 렌더링 */}
           <ModalLackCredit onClose={() => setShowLackModal(false)} />
         </ModalPortal>
