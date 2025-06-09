@@ -16,6 +16,7 @@ function RechargeCredit({ onClose, idol, subtitle, title }) {
   const handelRechargeCredit = () => {
     const credit = parseInt(selected, 10)
     addCredit(credit)
+    onClose()
   }
 
   return (
