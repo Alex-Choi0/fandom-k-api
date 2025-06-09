@@ -29,8 +29,8 @@ export function CreditProvider({ children }) {
   };
 
   /* 크레딧 감소 */
-  const useCredit = (amout) => {
-    setCredit((prev) => Math.max(prev - amout, 0)); //음수일 때 0 처리
+  const useCredit = (amount) => {
+    setCredit((prev) => Math.max(prev - amount, 0)); //음수일 때 0 처리
   };
 
   return (

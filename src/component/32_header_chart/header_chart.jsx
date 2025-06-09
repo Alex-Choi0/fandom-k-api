@@ -2,7 +2,7 @@ import "./header_chart.css";
 import SupportCardComponent4 from "../../component_combine/4_support_card/4_support_card.component";
 import Chart from "../../assets/icon/chart.svg";
 
-function HeaderChart() {
+function HeaderChart({ onVoteClick }) {
   return (
     <div className="HeaderChart">
       <h2>이달의 차트</h2>
@@ -37,6 +37,7 @@ function HeaderChart() {
           borderRadius: "3px",
           fontSize: "14px",
           border: "none",
+          onClick: onVoteClick,
         }}
       />
     </div>
