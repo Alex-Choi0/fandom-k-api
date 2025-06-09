@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const CreditContext = createContext(null); // context 생성, 전역 상태 공간 생성성
+const CreditContext = createContext(null); // context 생성, 전역 상태 공간 생성
 
 /* 커스텀 훅 */
 export function useCreditContext() {

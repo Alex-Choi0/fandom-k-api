@@ -9,6 +9,17 @@ function IdolsChart() {
   const [chartList, setChartList] = useState([]); // 차트
   const [cursor, setCursor] = useState(null); // 다음 페이지
   const [loading, setLoading] = useState(false); // 로딩
+  const [isMobileLayout, setIsMobileLayout] = useState(false); // 반응형
+
+  /* 화면 크기 변화 감지 */
+  useEffect(() => {
+    const updateLayout = () => {
+      setIsMobileLayout(window.innerWidth <= 1023);
+    };
+    updateLayout();
+    window.addEventListener("resize", updateLayout); // 리사이즈 이벤트 등록
+    return () => window.removeEventListener("resize", updateLayout); // 정리
+  }, []);
 
   const handleGenderChange = (newGender) => {
     if (gender === newGender) return; // 다시 클릭해도 반응 X
@@ -17,6 +28,7 @@ function IdolsChart() {
     setCursor(null);
   };
 
+  /* 성별 변경 시 실행행 */
   useEffect(() => {
     fetchChartList();
   }, [gender]);
@@ -29,6 +41,7 @@ function IdolsChart() {
     console.log("nextCursor:", res.nextCursor);
   };
 
+  /* 더보기 버튼 클릭 시 실행 */
   const handleLoadMore = async () => {
     if (!cursor || loading) return;
     setLoading(true);
@@ -61,16 +74,26 @@ function IdolsChart() {
       {/*차트 출력*/}
       <div className="chart-container">
         <div className="chart-list">
-          <div className="chart-left">
-            {leftList.map((idol, i) => (
-              <IdolItem key={idol.id} data={idol} rank={i * 2 + 1} />
-            ))}
-          </div>
-          <div className="chart-right">
-            {rightList.map((idol, i) => (
-              <IdolItem key={idol.id} data={idol} rank={i * 2 + 2} />
-            ))}
-          </div>
+          {isMobileLayout ? (
+            // 태블릿, 모바일: 순차 출력 (1열)
+            chartList.map((idol, i) => (
+              <IdolItem key={idol.id} data={idol} rank={i + 1} />
+            ))
+          ) : (
+            // PC: 2열 (짝수/홀수)
+            <>
+              <div className="chart-left">
+                {leftList.map((idol, i) => (
+                  <IdolItem key={idol.id} data={idol} rank={i * 2 + 1} />
+                ))}
+              </div>
+              <div className="chart-right">
+                {rightList.map((idol, i) => (
+                  <IdolItem key={idol.id} data={idol} rank={i * 2 + 2} />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
       <LoadingChart
