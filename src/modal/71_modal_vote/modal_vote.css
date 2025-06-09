@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 8px;
   margin: 20px 0;
-  width: 477px;
+  max-width: 477px;
+  min-width: 328px;
   height: 514px;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE, Edge */
