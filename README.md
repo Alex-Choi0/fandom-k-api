@@ -9,6 +9,7 @@
 - 🔗 [기본 노션](https://codeit.notion.site/_-1d56fd228e8d81e19a74db3c719a067c)
 - 🎨 [Figma 디자인](https://www.figma.com/design/lccVqOCzq7XCUYztyC7KlQ/-AAA-Fandom-K?node-id=8-1008&p=f&t=d6FTDYjBMakzDP5f-0)
 - 📚 [Swagger API 문서](https://fandom-k-api.vercel.app/docs/)
+- 🔗 [배포 페이지](https://alex-choi0.github.io/fandom-k-api)
 
 ## 🛠 개발 환경
 
