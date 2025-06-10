@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component";
 import ButtonComponent1 from "../../component/1_button/1_button.component";
 import ModalLackCredit from "../63_modal_lack_credit/modal_lack_credit";
@@ -21,7 +22,9 @@ const ModalVoteMobile = () => {
 
   const { credit, useCredit } = useCreditContext();
 
-  const handleClose = () => navigate(-1);
+  const handleClose = () => {
+    navigate("/list", { state: { shouldRefresh: true, gender } }); // 투표 끝나고 list 페이지로 이동 + 새로고침 요청
+  };
 
   // 아이돌 데이터 가져오기
   useEffect(() => {
@@ -37,7 +40,7 @@ const ModalVoteMobile = () => {
   }, [gender]);
 
   // 투표 로직
-  const handleVote = () => {
+  const handleVote = async () => {
     if (!selectedId) {
       alert("아이돌을 선택해주세요!");
       return;
@@ -48,9 +51,21 @@ const ModalVoteMobile = () => {
       return;
     }
 
-    useCredit(1000);
-    alert("투표가 완료되었습니다!");
-    handleClose();
+    try {
+      const res = await axios.post(
+        "https://fandom-k-api.vercel.app/16-4/votes",
+        {
+          idolId: selectedId,
+        }
+      );
+
+      useCredit(1000);
+      alert("투표가 완료되었습니다!");
+      navigate("/list", { state: { shouldRefresh: true, gender } }); // 새로고침 트리거 포함
+    } catch (err) {
+      console.error("모바일 투표 실패:", err);
+      alert("투표에 실패했습니다. 다시 시도해주세요.");
+    }
   };
 
   return (

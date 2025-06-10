@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component";
 import ModalFrame from "../../component/51_ModalFrame/ModalFrame.jsx";
 import ModalPortal from "../66_modal_portal/modal_portal";
@@ -10,7 +11,7 @@ import { FindIdolsCharts20 } from "../../utils/api/api";
 import { useCreditContext } from "../../context/52_credit_context/credit_context";
 import "./modal_vote.css";
 
-const ModalVote = ({ gender, onClose }) => {
+const ModalVote = ({ gender, onClose, onSuccess }) => {
   const [idolList, setIdolList] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [showLackModal, setShowLackModal] = useState(false);
@@ -39,20 +40,50 @@ const ModalVote = ({ gender, onClose }) => {
   }, [gender]);
 
   // 투표 실행
-  const handleVote = () => {
+  const handleVote = async () => {
     if (!selectedId) {
       alert("아이돌을 선택해주세요!");
       return;
     }
 
     if (credit < 1000) {
-      setShowLackModal(true); // 부족 모달 띄움
+      setShowLackModal(true);
       return;
     }
 
-    useCredit(1000);
-    alert("투표가 완료되었습니다!");
-    onClose();
+    try {
+      // 서버에 POST 요청 보내기
+      const res = await axios.post(
+        "https://fandom-k-api.vercel.app/16-4/votes",
+        {
+          idolId: selectedId,
+        }
+      );
+
+      const votedIdol = res.data.idol;
+
+      // 크레딧 차감
+      useCredit(1000);
+
+      // 프론트 상태 업데이트
+      const updatedList = idolList.map((idol) => {
+        if (idol.id === votedIdol.id) {
+          return {
+            ...votedIdol, // 서버 응답으로 최신 totalVotes 반영
+          };
+        }
+        return idol;
+      });
+      setIdolList(updatedList);
+
+      // 완료 알림 및 모달 닫기
+      alert("투표가 완료되었습니다!");
+      if (onSuccess) onSuccess(); // 리스트 새로고침
+      onClose(); // 모달 닫기
+    } catch (err) {
+      console.error("투표 실패:", err);
+      alert("투표 중 오류가 발생했습니다!");
+    }
   };
 
   return (
