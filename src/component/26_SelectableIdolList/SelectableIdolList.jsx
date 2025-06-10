@@ -1,75 +1,75 @@
-import { useEffect, useRef, useState } from "react"
-import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component.jsx"
-import SwipeCarousel from "../41_swipeCarousel/swipeCarousel.jsx"
-import "./selectableIdolList.css"
+import { useEffect, useRef, useState } from "react";
+import CheckedImage11 from "../../component_combine/11_checked_image/11_checked_image.component.jsx";
+import SwipeCarousel from "../41_swipeCarousel/swipeCarousel.jsx";
+import "./selectableIdolList.css";
 
 const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
-  const [imageSize, setImageSize] = useState("128px")
-  const [chunkedIdolList, setChunkedIdolList] = useState([])
-  const gridRef = useRef(null)
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [imageSize, setImageSize] = useState("128px");
+  const [chunkedIdolList, setChunkedIdolList] = useState([]);
+  const gridRef = useRef(null);
 
   // 이미지 사이즈 반응형 설정
   useEffect(() => {
     const handleResize = () => {
-      const width = window.innerWidth
-      setViewportWidth(width)
-      setImageSize(width <= 375 ? "98px" : "128px")
-    }
+      const width = window.innerWidth;
+      setViewportWidth(width);
+      setImageSize(width <= 375 ? "98px" : "128px");
+    };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // 실측 기반으로 chunk 분할 (스와이프될 페이지 단위)
   useEffect(() => {
     const calcChunk = () => {
-      const containerWidth = gridRef.current.clientWidth
+      const containerWidth = gridRef.current.clientWidth;
 
-      const cardSize = imageSize === "98px" ? 98 : 128
-      const gap = 25
-      const cardWithGap = cardSize + gap
+      const cardSize = imageSize === "98px" ? 98 : 128;
+      const gap = 25;
+      const cardWithGap = cardSize + gap;
 
-      const columnsPerRow = Math.round(containerWidth / cardWithGap)
-      const itemsPerPage = columnsPerRow * 2
+      const columnsPerRow = Math.round(containerWidth / cardWithGap);
+      const itemsPerPage = columnsPerRow * 2;
 
-      if (!itemsPerPage || itemsPerPage < 1) return
+      if (!itemsPerPage || itemsPerPage < 1) return;
 
-      const chunks = []
-      const total = idolList.length
-      let i = 0
+      const chunks = [];
+      const total = idolList.length;
+      let i = 0;
 
       while (i < total) {
         // 마지막 페이지 계산
         if (i + itemsPerPage >= total) {
-          chunks.push(idolList.slice(i)) // 남은 거 전부
-          break
+          chunks.push(idolList.slice(i)); // 남은 거 전부
+          break;
         }
 
-        chunks.push(idolList.slice(i, i + itemsPerPage))
-        i += itemsPerPage
+        chunks.push(idolList.slice(i, i + itemsPerPage));
+        i += itemsPerPage;
       }
-      setChunkedIdolList(chunks)
-    }
+      setChunkedIdolList(chunks);
+    };
 
     // idolList가 빈 배열일 경우엔 계산 안 되도록 조건 추가
     if (idolList.length > 0) {
-      requestAnimationFrame(() => setTimeout(calcChunk, 0))
-      window.addEventListener("resize", calcChunk)
-      return () => window.removeEventListener("resize", calcChunk)
+      requestAnimationFrame(() => setTimeout(calcChunk, 0));
+      window.addEventListener("resize", calcChunk);
+      return () => window.removeEventListener("resize", calcChunk);
     }
-  }, [idolList, imageSize])
+  }, [idolList, imageSize]);
 
   const leftBtnStyle =
     viewportWidth <= 745
       ? { left: "-56px", top: "50%" }
-      : { left: "-61px", top: "50%" }
+      : { left: "-61px", top: "50%" };
 
   const rightBtnStyle =
     viewportWidth <= 745
       ? { right: "-56px", top: "50%" }
-      : { right: "-61px", top: "50%" }
+      : { right: "-61px", top: "50%" };
 
   return (
     <div className="SelectableIdolList-wrapper">
@@ -149,7 +149,7 @@ const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
         )}
       </SwipeCarousel>
     </div>
-  )
-}
+  );
+};
 
-export default SelectableIdolList
+export default SelectableIdolList;
