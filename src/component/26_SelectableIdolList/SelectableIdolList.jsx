@@ -6,10 +6,12 @@ import "./selectableIdolList.css";
 const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const [imageSize, setImageSize] = useState("128px");
-  const [chunkedIdolList, setChunkedIdolList] = useState([]);
+  // 초기값으로 idolList 전체를 1페이지 chunk로 넣기 (초기 렌더링 시 빈 리스트 문제 해결)
+  const [chunkedIdolList, setChunkedIdolList] = useState(
+    idolList.length > 0 ? [idolList] : []
+  );
   const gridRef = useRef(null);
 
-  // 이미지 사이즈 반응형 설정
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -22,9 +24,10 @@ const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 실측 기반으로 chunk 분할 (스와이프될 페이지 단위)
   useEffect(() => {
     const calcChunk = () => {
+      if (!gridRef.current) return;
+
       const containerWidth = gridRef.current.clientWidth;
 
       const cardSize = imageSize === "98px" ? 98 : 128;
@@ -41,25 +44,30 @@ const SelectableIdolList = ({ idolList, selectedIds, onToggle, cardWidth }) => {
       let i = 0;
 
       while (i < total) {
-        // 마지막 페이지 계산
         if (i + itemsPerPage >= total) {
-          chunks.push(idolList.slice(i)); // 남은 거 전부
+          chunks.push(idolList.slice(i));
           break;
         }
-
         chunks.push(idolList.slice(i, i + itemsPerPage));
         i += itemsPerPage;
       }
       setChunkedIdolList(chunks);
     };
 
-    // idolList가 빈 배열일 경우엔 계산 안 되도록 조건 추가
+    // 아이돌 리스트가 바뀌거나 이미지 사이즈가 바뀔 때마다 재계산
     if (idolList.length > 0) {
+      // 처음에는 초기값 세팅되어 있어서 바로 실행해도 괜찮음
       requestAnimationFrame(() => setTimeout(calcChunk, 0));
+
       window.addEventListener("resize", calcChunk);
       return () => window.removeEventListener("resize", calcChunk);
     }
   }, [idolList, imageSize]);
+
+  useEffect(() => {
+    // chunkedIdolList가 변경되면 강제로 resize 이벤트 발생시켜 scroll 체크 유도
+    window.dispatchEvent(new Event("resize"));
+  }, [chunkedIdolList]);
 
   const leftBtnStyle =
     viewportWidth <= 745
