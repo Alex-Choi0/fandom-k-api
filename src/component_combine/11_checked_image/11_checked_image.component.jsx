@@ -1,5 +1,5 @@
-import checkedImage from "../../assets/icon/checked.png"
-import ImageComponent2 from "../../component/2_image/2_image.component"
+import checkedImage from "../../assets/icon/checked.png";
+import ImageComponent2 from "../../component/2_image/2_image.component";
 
 /**
  * CheckedImage11 컴포넌트
@@ -37,6 +37,7 @@ const CheckedImage11 = ({
   objectPosition = "center top",
   border = "2px solid #F96D69",
   padding = "2px",
+  cursor = "pointer",
   maskImage = "none",
   srcChecked = checkedImage,
   overflow = "hidden",
@@ -61,6 +62,7 @@ const CheckedImage11 = ({
         borderRadius,
         overflow,
         display,
+        cursor,
       }}
     >
       <ImageComponent2
@@ -109,7 +111,7 @@ const CheckedImage11 = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CheckedImage11
+export default CheckedImage11;
