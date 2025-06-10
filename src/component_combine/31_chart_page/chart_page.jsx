@@ -1,27 +1,35 @@
 import "./chart_page.css";
-import HeaderChart from "../../component/32_header_chart/header_chart"; //차트 상단 바
-import IdolsChart from "../../component/33_idols_chart/idols_chart"; // 차트 리스트
-import LoadingChart from "../../component/34_loading_chart/loading_chart"; // 더보기 버튼
+import HeaderChart from "../../component/32_header_chart/header_chart";
+import IdolsChart from "../../component/33_idols_chart/idols_chart";
+import LoadingChart from "../../component/34_loading_chart/loading_chart";
 import ModalPortal from "../../modal/66_modal_portal/modal_portal";
 import ModalVote from "../../modal/71_modal_vote/modal_vote";
 import ModalVoteMobile from "../../modal/71_modal_vote/modal_vote_mobile";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function ChartPage() {
   const [showVoteModal, setShowVoteModal] = useState(false);
-  const [gender, setGender] = useState("female"); // 기본 성별 (차트 기준)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 375); // 모바일 : 투표하기 모달이 아닌 페이지로 이동
+  const [gender, setGender] = useState("female");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 375);
   const navigate = useNavigate();
+  const chartRef = useRef(null);
+  const location = useLocation();
 
   const handleOpenVoteModal = () => {
     if (isMobile) {
-      navigate("/vote", { state: { gender } }); // 모바일은 페이지 이동
+      navigate("/vote", { state: { gender } });
     } else {
-      setShowVoteModal(true); // 데스크탑, 태블릿은 모달 오픈
+      setShowVoteModal(true);
     }
   };
+
   const handleCloseVoteModal = () => setShowVoteModal(false);
+
+  const handleVoteSuccess = () => {
+    chartRef.current?.refreshChartList?.(); // 안전하게 호출
+    setShowVoteModal(false);
+  };
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 375);
@@ -29,13 +37,18 @@ function ChartPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (location.state?.shouldRefresh) {
+      chartRef.current?.refreshChartList?.();
+      window.history.replaceState({}, ""); // 뒤로가기해도 다시 새로고침 안 되게 초기화
+    }
+  }, [location.state]);
+
   return (
     <div className="ChartPage">
-      {/* 투표 버튼 클릭 시 모달 오픈 */}
       <HeaderChart onVoteClick={handleOpenVoteModal} gender={gender} />
 
-      {/* 성별을 IdolsChart에서 변경할 수 있다면, 성별도 여기서 관리하도록 리팩터링 가능 */}
-      <IdolsChart gender={gender} setGender={setGender} />
+      <IdolsChart gender={gender} setGender={setGender} ref={chartRef} />
 
       <LoadingChart />
 
@@ -44,7 +57,11 @@ function ChartPage() {
           <ModalVoteMobile gender={gender} onClose={handleCloseVoteModal} />
         ) : (
           <ModalPortal>
-            <ModalVote gender={gender} onClose={handleCloseVoteModal} />
+            <ModalVote
+              gender={gender}
+              onClose={handleCloseVoteModal}
+              onSuccess={handleVoteSuccess}
+            />
           </ModalPortal>
         ))}
     </div>
