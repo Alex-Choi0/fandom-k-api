@@ -24,3 +24,28 @@
 .carousel-btn.right:focus {
   outline: none;
 }
+
+@media (max-width: 1023px) {
+  .BoostSlider .carousel-btn {
+    display: none !important;
+  }
+
+  .BoostSlider {
+    overflow-x: auto;
+  }
+
+  .BoostSlider::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .BoostSlider .carousel-btn {
+      display: none !important;
+    }
+
+    .BoostIdols h2 {
+      font-size: 20px;
+      margin-left: 5px;
+    }
+  }
+}
